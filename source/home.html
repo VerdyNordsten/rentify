@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.FontAwesomeConfig = { autoReplaceSvg: 'nest' };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar { display: none; }
+        body { font-family: 'Manrope', sans-serif; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-purple': '#5F33E1',
+                        'brand-orange': '#F9A825',
+                        'brand-dark': '#1A1A1A',
+                        'brand-gray-light': '#F8F8FA',
+                        'brand-gray-medium': '#6B7280',
+                        'brand-gray-dark': '#374151',
+                    },
+                    backgroundImage: {
+                        'tire-track': "url('https://www.transparenttextures.com/patterns/tire-track.png')",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-brand-dark">
+
+    <div id="main-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header id="header" class="flex justify-between items-center py-6">
+            <div class="flex items-center space-x-3">
+                <div class="bg-brand-dark text-white p-2 rounded-full">
+                    <i class="fa-solid fa-car-side"></i>
+                </div>
+                <span class="font-bold text-xl">Car Rental</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <span class="text-brand-dark font-semibold cursor-pointer">Home</span>
+                <span class="text-brand-purple font-bold border-b-2 border-brand-purple pb-1 cursor-pointer">Vehicles</span>
+                <span class="text-brand-dark font-semibold cursor-pointer">Details</span>
+                <span class="text-brand-dark font-semibold cursor-pointer">About Us</span>
+                <span class="text-brand-dark font-semibold cursor-pointer">Contact Us</span>
+            </nav>
+            <div class="flex items-center space-x-3">
+                <div class="bg-brand-purple/10 text-brand-purple p-3 rounded-full">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-brand-gray-medium">Need help?</p>
+                    <p class="font-bold">+996 247-1680</p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="hero-section" class="relative bg-brand-purple rounded-3xl h-[34rem] mt-6 p-12 overflow-hidden">
+                <div class="absolute inset-0 bg-tire-track opacity-5" style="background-size: 500px;"></div>
+                <div class="relative z-10 flex items-center h-full">
+                    <div class="w-1/2 text-white">
+                        <h1 class="text-6xl font-extrabold leading-tight">Experience the road like never before</h1>
+                        <p class="mt-4 text-gray-200 max-w-md">Aliquam adipiscing velit semper morbi. Purus non eu cursus porttitor tristique et gravida. Quis nunc interdum gravida ullamcorper.</p>
+                        <button class="mt-8 bg-brand-orange text-white font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors">View all cars</button>
+                    </div>
+                    <div class="absolute right-[-200px] top-1/2 -translate-y-1/2 h-[400px] w-[800px]">
+                         <img class="object-cover w-full h-full" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/52de65396e-09c8ed3dcd3994dac29a.png" alt="side view of a modern glossy blue SUV car driving fast on a wet road, motion blur, artistic style" />
+                    </div>
+                    <div id="booking-form" class="w-[380px] bg-white rounded-2xl shadow-2xl p-8 absolute right-12 z-20">
+                        <h3 class="text-2xl font-bold text-center mb-6">Book your car</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="car-type" class="sr-only">Car type</label>
+                                <div class="relative">
+                                    <select id="car-type" class="w-full bg-brand-gray-light border-none rounded-lg p-3 appearance-none text-brand-gray-medium">
+                                        <option>Car type</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-medium"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="rental-place" class="sr-only">Place of rental</label>
+                                <div class="relative">
+                                    <select id="rental-place" class="w-full bg-brand-gray-light border-none rounded-lg p-3 appearance-none text-brand-gray-medium">
+                                        <option>Place of rental</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-medium"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="return-place" class="sr-only">Place of return</label>
+                                <div class="relative">
+                                    <select id="return-place" class="w-full bg-brand-gray-light border-none rounded-lg p-3 appearance-none text-brand-gray-medium">
+                                        <option>Place of return</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-medium"></i>
+                                </div>
+                            </div>
+                            <div class="flex space-x-4">
+                                <div class="relative w-1/2">
+                                    <input type="text" placeholder="Rental date" class="w-full bg-brand-gray-light border-none rounded-lg p-3 text-brand-gray-medium" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                    <i class="fa-regular fa-calendar absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-medium"></i>
+                                </div>
+                                <div class="relative w-1/2">
+                                    <input type="text" placeholder="Return date" class="w-full bg-brand-gray-light border-none rounded-lg p-3 text-brand-gray-medium" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                    <i class="fa-regular fa-calendar absolute right-4 top-1/2 -translate-y-1/2 text-brand-gray-medium"></i>
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-orange text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-colors">Book now</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="features-section" class="py-24">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+                    <div id="feature-availability" class="flex flex-col items-center">
+                        <div class="bg-brand-purple/10 text-brand-purple rounded-full p-4 mb-4 inline-flex">
+                            <i class="fa-solid fa-location-dot text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Availability</h3>
+                        <p class="text-brand-gray-medium">Diam tincidunt tincidunt erat at semper fermentum, id ultricies quis</p>
+                    </div>
+                    <div id="feature-comfort" class="flex flex-col items-center">
+                        <div class="bg-brand-purple/10 text-brand-purple rounded-full p-4 mb-4 inline-flex">
+                            <i class="fa-solid fa-car text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Comfort</h3>
+                        <p class="text-brand-gray-medium">Gravida auctor fermentum morbi vulputate ac egestas orcietium convallis</p>
+                    </div>
+                    <div id="feature-savings" class="flex flex-col items-center">
+                        <div class="bg-brand-purple/10 text-brand-purple rounded-full p-4 mb-4 inline-flex">
+                            <i class="fa-solid fa-wallet text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Savings</h3>
+                        <p class="text-brand-gray-medium">Pretium convallis id diam sed commodo vestibulum lobortis volutpat</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about-us-section" class="py-16">
+                <div class="flex items-center gap-16">
+                    <div class="w-1/2">
+                       <div class="w-full h-[450px] rounded-2xl overflow-hidden">
+                         <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/6fa4de6dec-6151501fb89289e202e7.png" alt="abstract blurry image with blue and gray tones, creating a sense of motion and technology, minimalist style" />
+                       </div>
+                    </div>
+                    <div class="w-1/2">
+                        <ul class="space-y-6">
+                            <li class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-brand-purple text-white rounded-full flex items-center justify-center font-bold">1</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Erat at semper</h4>
+                                    <p class="text-brand-gray-medium mt-1">Non amet fermentum est in enim at sit ullamcorper. Sit elementum rhoncus nullam feugiat. Risus sem fermentum...</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-brand-purple text-white rounded-full flex items-center justify-center font-bold">2</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Urna nec vivamus risus duis arcu</h4>
+                                    <p class="text-brand-gray-medium mt-1">Tristique et gravida. Quis nunc interdum gravida ullamcorper cursus porttitor tristique et gravida. Quis nunc...</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-brand-purple text-white rounded-full flex items-center justify-center font-bold">3</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Lobortis euismod imperdiet tempus</h4>
+                                    <p class="text-brand-gray-medium mt-1">Viverra scelerisque mauris et nullam molestie et. Augue adipiscing praesent nisl cras nunc luctus viverra nisl</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-brand-purple text-white rounded-full flex items-center justify-center font-bold">4</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Cras nulla aliquet nam eleifend amet et</h4>
+                                    <p class="text-brand-gray-medium mt-1">Aliquam adipiscing velit semper morbi. Purus non eu cursus sed integer. Quisque eleifend tincidunt vulputate libero</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="car-selection-section" class="py-24">
+                <div class="flex justify-between items-center mb-12">
+                    <h2 class="text-4xl font-bold">Choose the car that<br>suits you</h2>
+                    <span class="font-bold text-brand-dark hover:text-brand-purple transition-colors cursor-pointer">View All <i class="fa-solid fa-arrow-right ml-2"></i></span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div id="car-card-1" class="bg-brand-gray-light rounded-2xl p-6 flex flex-col">
+                        <div class="h-40 mb-4 flex items-center justify-center">
+                            <img class="h-full w-auto object-contain" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/4c030a4c30-38d950d7177231e33374.png" alt="gray silhouette of a modern Mercedes sedan car, side view, on a white background, minimalist style" />
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-bold text-xl">Mercedes</h4>
+                                <p class="text-brand-gray-medium text-sm">Sedan</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-brand-purple font-bold text-xl">$25</p>
+                                <p class="text-brand-gray-medium text-sm">per day</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 text-brand-gray-medium mt-4 mb-6 text-sm">
+                            <span class="flex items-center"><i class="fa-solid fa-gears mr-2"></i>Automat</span>
+                            <span class="flex items-center"><i class="fa-solid fa-gas-pump mr-2"></i>PB 95</span>
+                            <span class="flex items-center"><i class="fa-solid fa-fan mr-2"></i>Air Conditioner</span>
+                        </div>
+                        <button class="mt-auto w-full bg-brand-purple text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-colors">View Details</button>
+                    </div>
+                    <div id="car-card-2" class="bg-brand-gray-light rounded-2xl p-6 flex flex-col">
+                        <div class="h-40 mb-4 flex items-center justify-center">
+                            <img class="h-full w-auto object-contain" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/4c030a4c30-c35b9235ce68c1fa1334.png" alt="gray silhouette of a modern Mercedes sports car, side view, on a white background, minimalist style" />
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-bold text-xl">Mercedes</h4>
+                                <p class="text-brand-gray-medium text-sm">Sport</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-brand-purple font-bold text-xl">$50</p>
+                                <p class="text-brand-gray-medium text-sm">per day</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 text-brand-gray-medium mt-4 mb-6 text-sm">
+                            <span class="flex items-center"><i class="fa-solid fa-gears mr-2"></i>Automat</span>
+                            <span class="flex items-center"><i class="fa-solid fa-gas-pump mr-2"></i>PB 95</span>
+                            <span class="flex items-center"><i class="fa-solid fa-fan mr-2"></i>Air Conditioner</span>
+                        </div>
+                        <button class="mt-auto w-full bg-brand-purple text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-colors">View Details</button>
+                    </div>
+                    <div id="car-card-3" class="bg-brand-gray-light rounded-2xl p-6 flex flex-col">
+                        <div class="h-40 mb-4 flex items-center justify-center">
+                            <img class="h-full w-auto object-contain" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/4c030a4c30-bd6b958103453777e12d.png" alt="gray silhouette of a modern Mercedes sedan, side view, on a white background, minimalist style, different model" />
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-bold text-xl">Mercedes</h4>
+                                <p class="text-brand-gray-medium text-sm">Sedan</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-brand-purple font-bold text-xl">$45</p>
+                                <p class="text-brand-gray-medium text-sm">per day</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 text-brand-gray-medium mt-4 mb-6 text-sm">
+                            <span class="flex items-center"><i class="fa-solid fa-gears mr-2"></i>Automat</span>
+                            <span class="flex items-center"><i class="fa-solid fa-gas-pump mr-2"></i>PB 95</span>
+                            <span class="flex items-center"><i class="fa-solid fa-fan mr-2"></i>Air Conditioner</span>
+                        </div>
+                        <button class="mt-auto w-full bg-brand-purple text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-colors">View Details</button>
+                    </div>
+                    <div id="car-card-4" class="bg-brand-gray-light rounded-2xl p-6 flex flex-col">
+                        <div class="h-40 mb-4 flex items-center justify-center">
+                            <img class="h-full w-auto object-contain" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/0aecc7d918-7677883212109c2a9f71.png" alt="gray silhouette of a modern Porsche SUV, side view, on a white background, minimalist style" />
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-bold text-xl">Porsche</h4>
+                                <p class="text-brand-gray-medium text-sm">SUV</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-brand-purple font-bold text-xl">$40</p>
+                                <p class="text-brand-gray-medium text-sm">per day</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 text-brand-gray-medium mt-4 mb-6 text-sm">
+                            <span class="flex items-center"><i class="fa-solid fa-gears mr-2"></i>Automat</span>
+                            <span class="flex items-center"><i class="fa-solid fa-gas-pump mr-2"></i>PB 95</span>
+                            <span class="flex items-center"><i class="fa-solid fa-fan mr-2"></i>Air Conditioner</span>
+                        </div>
+                        <button class="mt-auto w-full bg-brand-purple text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-colors">View Details</button>
+                    </div>
+                    <div id="car-card-5" class="bg-brand-gray-light rounded-2xl p-6 flex flex-col">
+                        <div class="h-40 mb-4 flex items-center justify-center">
+                            <img class="h-full w-auto object-contain" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/4809dfbcf3-6ab585f7c6e3635a5d6d.png" alt="gray silhouette of a modern Toyota sedan, side view, on a white background, minimalist style" />
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-bold text-xl">Toyota</h4>
+                                <p class="text-brand-gray-medium text-sm">Sedan</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-brand-purple font-bold text-xl">$35</p>
+                                <p class="text-brand-gray-medium text-sm">per day</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 text-brand-gray-medium mt-4 mb-6 text-sm">
+                            <span class="flex items-center"><i class="fa-solid fa-gears mr-2"></i>Automat</span>
+                            <span class="flex items-center"><i class="fa-solid fa-gas-pump mr-2"></i>PB 95</span>
+                            <span class="flex items-center"><i class="fa-solid fa-fan mr-2"></i>Air Conditioner</span>
+                        </div>
+                        <button class="mt-auto w-full bg-brand-purple text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-colors">View Details</button>
+                    </div>
+                    <div id="car-card-6" class="bg-brand-gray-light rounded-2xl p-6 flex flex-col">
+                        <div class="h-40 mb-4 flex items-center justify-center">
+                           <img class="h-full w-auto object-contain" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/0aecc7d918-4fb8160116991d479752.png" alt="gray silhouette of a modern Porsche SUV, side view, different model, on a white background, minimalist style" />
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-bold text-xl">Porsche</h4>
+                                <p class="text-brand-gray-medium text-sm">SUV</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-brand-purple font-bold text-xl">$50</p>
+                                <p class="text-brand-gray-medium text-sm">per day</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 text-brand-gray-medium mt-4 mb-6 text-sm">
+                            <span class="flex items-center"><i class="fa-solid fa-gears mr-2"></i>Automat</span>
+                            <span class="flex items-center"><i class="fa-solid fa-gas-pump mr-2"></i>PB 95</span>
+                            <span class="flex items-center"><i class="fa-solid fa-fan mr-2"></i>Air Conditioner</span>
+                        </div>
+                        <button class="mt-auto w-full bg-brand-purple text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-colors">View Details</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="facts-section" class="relative bg-brand-purple rounded-3xl h-[26rem] my-16 p-16 text-white text-center overflow-hidden">
+                <div class="absolute inset-0 bg-tire-track opacity-5" style="background-size: 500px;"></div>
+                <div class="relative z-10 flex flex-col items-center justify-center h-full">
+                    <h2 class="text-4xl font-bold">Facts in Numbers</h2>
+                    <p class="max-w-xl mt-4 mb-12 text-gray-200">Amet cras hac orci lacus. Faucibus ipsum arcu lectus nibh sapien bibendum in. Diam tincidunt tincidunt erat at semper fermentum</p>
+                    <div class="grid grid-cols-4 gap-8 w-full max-w-4xl">
+                        <div id="fact-card-1" class="bg-white/90 backdrop-blur-sm text-brand-dark rounded-2xl p-4 flex items-center justify-center space-x-4">
+                            <div class="bg-brand-orange text-white rounded-lg p-3">
+                                <i class="fa-solid fa-car-side text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold">540+</p>
+                                <p class="text-sm">Cars</p>
+                            </div>
+                        </div>
+                        <div id="fact-card-2" class="bg-white/90 backdrop-blur-sm text-brand-dark rounded-2xl p-4 flex items-center justify-center space-x-4">
+                            <div class="bg-brand-orange text-white rounded-lg p-3">
+                                <i class="fa-solid fa-user-group text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold">20k+</p>
+                                <p class="text-sm">Customers</p>
+                            </div>
+                        </div>
+                        <div id="fact-card-3" class="bg-white/90 backdrop-blur-sm text-brand-dark rounded-2xl p-4 flex items-center justify-center space-x-4">
+                             <div class="bg-brand-orange text-white rounded-lg p-3">
+                                <i class="fa-solid fa-calendar-check text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold">25+</p>
+                                <p class="text-sm">Years</p>
+                            </div>
+                        </div>
+                        <div id="fact-card-4" class="bg-white/90 backdrop-blur-sm text-brand-dark rounded-2xl p-4 flex items-center justify-center space-x-4">
+                             <div class="bg-brand-orange text-white rounded-lg p-3">
+                                <i class="fa-solid fa-road text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold">20m+</p>
+                                <p class="text-sm">Miles</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="mobile-app-section" class="py-24">
+                <div class="flex items-center gap-16">
+                    <div class="w-1/2">
+                        <h2 class="text-4xl font-bold">Download<br>mobile app</h2>
+                        <p class="text-brand-gray-medium mt-6 mb-8 max-w-md">Imperdiet ut tristique viverra nunc. Ultrices orci vel auctor cursus turpis nibh placerat massa. Fermentum urna ut at et in. Turpis aliquet cras hendrerit enim condimentum. Condimentum interdum risus bibendum urna</p>
+                        <div class="flex items-center space-x-4">
+                            <span class="cursor-pointer"><img class="h-12 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d04841cacd-8ae2b8cde29e778c9bb8.png" alt="Apple App Store download button, black color" /></span>
+                            <span class="cursor-pointer"><img class="h-12 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/cb8db485cf-209a9afa9740e1c210c2.png" alt="Google Play Store download button, black color" /></span>
+                        </div>
+                    </div>
+                    <div class="w-1/2 relative h-[500px]">
+                        <div class="absolute right-20 top-0 w-64 h-auto transform rotate-[-10deg]">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/fbd15b0b2b-f1dd1a677c5943303b55.png" alt="Clay mockup of a modern smartphone with a blank white screen, slightly tilted" />
+                        </div>
+                        <div class="absolute right-0 top-10 w-64 h-auto transform rotate-[10deg]">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/fbd15b0b2b-54b2f28a37c7c496a02b.png" alt="Clay mockup of a modern smartphone with a blank white screen, slightly tilted to the right" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cta-section" class="relative bg-brand-purple rounded-3xl h-[22rem] my-16 p-16 text-white flex items-center justify-between overflow-hidden">
+                <div class="absolute inset-0 bg-tire-track opacity-5" style="background-size: 500px;"></div>
+                <div class="absolute right-0 bottom-0 text-white/10 text-[200px]">
+                    <i class="fa-solid fa-car-rear"></i>
+                </div>
+                <div class="relative z-10 w-2/3">
+                    <h2 class="text-4xl font-bold">Enjoy every mile with<br>adorable companionship.</h2>
+                    <p class="mt-4 text-gray-200 max-w-lg">Amet cras hac orci lacus. Faucibus ipsum arcu lectus nibh sapien bibendum ullamcorper in. Diam tincidunt tincidunt erat</p>
+                </div>
+                <div class="relative z-10 w-1/3">
+                    <div class="relative">
+                        <input type="text" placeholder="City" class="w-full bg-white text-brand-dark rounded-lg py-4 pl-6 pr-32">
+                        <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-brand-orange text-white font-bold py-2.5 px-6 rounded-lg">Search</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer id="footer" class="bg-brand-gray-light pt-20 pb-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="bg-brand-dark text-white p-2 rounded-full">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+                        <span class="font-bold text-xl">Car Rental</span>
+                    </div>
+                    <p class="text-brand-gray-medium max-w-xs mb-6">Faucibus faucibus pellentesque dictum turpis. Id pellentesque turpis massa a id iaculis lorem t...</p>
+                    <div class="flex space-x-3">
+                        <span class="w-8 h-8 flex items-center justify-center bg-brand-dark text-white rounded-full cursor-pointer"><i class="fa-brands fa-facebook-f"></i></span>
+                        <span class="w-8 h-8 flex items-center justify-center bg-brand-dark text-white rounded-full cursor-pointer"><i class="fa-brands fa-twitter"></i></span>
+                        <span class="w-8 h-8 flex items-center justify-center bg-brand-dark text-white rounded-full cursor-pointer"><i class="fa-brands fa-instagram"></i></span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Useful links</h4>
+                    <ul class="space-y-2 text-brand-gray-medium">
+                        <li><span class="hover:text-brand-purple cursor-pointer">About us</span></li>
+                        <li><span class="hover:text-brand-purple cursor-pointer">Contact us</span></li>
+                        <li><span class="hover:text-brand-purple cursor-pointer">Gallery</span></li>
+                        <li><span class="hover:text-brand-purple cursor-pointer">Blog</span></li>
+                        <li><span class="hover:text-brand-purple cursor-pointer">F.A.Q</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Vehicles</h4>
+                    <ul class="space-y-2 text-brand-gray-medium">
+                        <li><span class="hover:text-brand-purple cursor-pointer">Sedan</span></li>
+                        <li><span class="hover:text-brand-purple cursor-pointer">Cabriolet</span></li>
+                        <li><span class="hover:text-brand-purple cursor-pointer">Pickup</span></li>
+                        <li><span class="hover:text-brand-purple cursor-pointer">Minivan</span></li>
+                        <li><span class="hover:text-brand-purple cursor-pointer">SUV</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Download App</h4>
+                    <div class="space-y-3">
+                        <span class="cursor-pointer"><img class="h-12 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d04841cacd-8ae2b8cde29e778c9bb8.png" alt="Apple App Store download button, black color" /></span>
+                        <span class="cursor-pointer"><img class="h-12 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/cb8db485cf-209a9afa9740e1c210c2.png" alt="Google Play Store download button, black color" /></span>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-300 mt-12 pt-8 flex flex-wrap justify-between items-center text-sm text-brand-gray-medium">
+                <div class="flex flex-wrap gap-x-8 gap-y-4">
+                     <div class="flex items-center space-x-3">
+                        <div class="bg-brand-orange text-white rounded-full w-8 h-8 flex items-center justify-center">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span>Address<br>Oxford Ave, Cary, NC 27511</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-brand-orange text-white rounded-full w-8 h-8 flex items-center justify-center">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <span>Email<br>nwiger@yahoo.com</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-brand-orange text-white rounded-full w-8 h-8 flex items-center justify-center">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <span>Phone<br>+537 547-6401</span>
+                    </div>
+                </div>
+                <p class="mt-4 md:mt-0">&copy; Copyright Car Rental 2024. Design by Figma. guru</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
