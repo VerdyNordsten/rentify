@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
+import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import AboutUsSection from '@/components/AboutUsSection';
@@ -8,6 +10,18 @@ import MobileAppSection from '@/components/MobileAppSection';
 import CTASection from '@/components/CTASection';
 
 const Home = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <Layout>
       <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -26,7 +40,21 @@ const Home = () => {
         </div>
         
         <div className="relative z-10">
-          <HeroSection />
+          {/* Sticky Header with white background */}
+          <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            isScrolled
+              ? 'bg-white/95 backdrop-blur-xl shadow-lg'
+              : 'bg-white'
+          }`}>
+            <div className="container relative">
+              <Header />
+            </div>
+          </div>
+          
+          {/* Add padding to top of hero section to account for fixed header */}
+          <div className="pt-20">
+            <HeroSection />
+          </div>
           <FeaturesSection />
           <AboutUsSection />
           <CarSelectionSection />

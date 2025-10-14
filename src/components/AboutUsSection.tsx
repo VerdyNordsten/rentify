@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Search, CalendarCheck, Key, Route, Award } from 'lucide-react';
 
 const AboutUsSection = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -34,33 +35,33 @@ const AboutUsSection = () => {
       title: 'Browse Available Vehicles',
       description: 'Explore our wide selection of quality vehicles with detailed information, photos, and pricing to find the perfect match for your needs.',
       gradient: 'from-purple-600 to-pink-600',
-      icon: 'fa-search'
+      icon: 'search'
     },
     {
       id: 2,
       title: 'Select & Reserve',
       description: 'Choose your preferred dates, select additional services if needed, and complete your reservation with our secure booking system.',
       gradient: 'from-blue-600 to-cyan-600',
-      icon: 'fa-calendar-check'
+      icon: 'calendar-check'
     },
     {
       id: 3,
       title: 'Pick Up Your Vehicle',
       description: 'Visit our convenient location to pick up your vehicle, complete the paperwork, and receive a thorough orientation of your rental car.',
       gradient: 'from-green-600 to-emerald-600',
-      icon: 'fa-key'
+      icon: 'key'
     },
     {
       id: 4,
       title: 'Enjoy Your Journey',
       description: 'Drive away with confidence knowing you have 24/7 roadside assistance and comprehensive insurance coverage throughout your rental period.',
       gradient: 'from-orange-600 to-red-600',
-      icon: 'fa-road'
+      icon: 'route'
     }
   ];
 
   return (
-    <section id="about-section" className="relative py-32">
+    <section id="about-section" className="relative py-32 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         {/* Gradient overlays */}
@@ -111,7 +112,7 @@ const AboutUsSection = () => {
             
             {/* Floating badge */}
             <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl px-6 py-3 text-white font-semibold text-lg">
-              <i className="fas fa-award mr-2 text-yellow-400"></i>
+              <Award className="w-4 h-4 mr-2 text-yellow-400" />
               25+ Years Experience
             </div>
           </div>
@@ -151,7 +152,10 @@ const AboutUsSection = () => {
                    
                   {/* Icon */}
                   <div className={`flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-r ${step.gradient} flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110`}>
-                    <i className={`fas ${step.icon}`}></i>
+                    {step.icon === 'search' && <Search className="w-4 h-4" />}
+                    {step.icon === 'calendar-check' && <CalendarCheck className="w-4 h-4" />}
+                    {step.icon === 'key' && <Key className="w-4 h-4" />}
+                    {step.icon === 'route' && <Route className="w-4 h-4" />}
                   </div>
                 </div>
               </div>

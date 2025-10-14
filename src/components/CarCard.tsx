@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Star, X, Heart, Settings, Fuel, Users, Wind } from 'lucide-react';
 
 export interface Car {
   id: number;
@@ -27,10 +28,10 @@ const StarRating = ({ rating }: { rating: number }) => {
   return (
     <div className="flex items-center space-x-1">
       {[...Array(5)].map((_, i) => (
-        <i 
-          key={i} 
-          className={`fas fa-star text-sm ${i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-600'}`}
-        ></i>
+        <Star
+          key={i}
+          className={`w-4 h-4 ${i < Math.floor(rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-600'}`}
+        />
       ))}
       <span className="text-gray-300 text-sm ml-2">{rating}</span>
     </div>
@@ -94,12 +95,12 @@ const CarCard = ({
           <div className="absolute top-4 left-4 flex gap-2">
             {!car.available && (
               <div className="bg-red-500/80 backdrop-blur-sm text-white rounded-lg px-3 py-1 text-sm font-bold">
-                <i className="fas fa-times-circle mr-1"></i>
+                <X className="w-4 h-4 mr-1" />
                 Unavailable
               </div>
             )}
             <div className="bg-purple-600/80 text-white rounded-lg px-3 py-1 text-sm font-bold">
-              <i className="fas fa-star text-yellow-300 mr-1"></i>
+              <Star className="w-4 h-4 text-yellow-300 fill-yellow-300 mr-1" />
               Premium
             </div>
           </div>
@@ -116,7 +117,7 @@ const CarCard = ({
                   : 'bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white'
               }`}
             >
-              <i className="fas fa-heart text-sm"></i>
+              <Heart className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -148,19 +149,19 @@ const CarCard = ({
           {/* Specifications */}
           <div className="grid grid-cols-2 gap-2 mb-6 text-sm text-gray-300">
             <div className="flex items-center">
-              <i className="fa-solid fa-gears mr-2 text-purple-400"></i>
+              <Settings className="w-4 h-4 mr-2 text-purple-400" />
               {car.transmission}
             </div>
             <div className="flex items-center">
-              <i className="fa-solid fa-gas-pump mr-2 text-purple-400"></i>
+              <Fuel className="w-4 h-4 mr-2 text-purple-400" />
               {car.fuel}
             </div>
             <div className="flex items-center">
-              <i className="fa-solid fa-users mr-2 text-purple-400"></i>
+              <Users className="w-4 h-4 mr-2 text-purple-400" />
               {car.seats} Seats
             </div>
             <div className="flex items-center">
-              <i className="fa-solid fa-fan mr-2 text-purple-400"></i>
+              <Wind className="w-4 h-4 mr-2 text-purple-400" />
               {car.airConditioner ? 'AC' : 'No AC'}
             </div>
           </div>

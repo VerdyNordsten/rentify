@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Car, Users, CalendarCheck, Route } from 'lucide-react';
 
 const FactsSection = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -76,7 +77,7 @@ const FactsSection = () => {
   const facts = [
     {
       id: 1,
-      icon: 'fa-car-side',
+      icon: 'car',
       value: counters.cars,
       suffix: '+',
       label: 'Premium Cars',
@@ -85,7 +86,7 @@ const FactsSection = () => {
     },
     {
       id: 2,
-      icon: 'fa-user-group',
+      icon: 'users',
       value: counters.customers >= 1000 ? `${(counters.customers / 1000).toFixed(0)}k` : counters.customers,
       suffix: '+',
       label: 'Happy Customers',
@@ -94,7 +95,7 @@ const FactsSection = () => {
     },
     {
       id: 3,
-      icon: 'fa-calendar-check',
+      icon: 'calendar-check',
       value: counters.years,
       suffix: '+',
       label: 'Years Experience',
@@ -103,7 +104,7 @@ const FactsSection = () => {
     },
     {
       id: 4,
-      icon: 'fa-road',
+      icon: 'route',
       value: counters.miles >= 1000000 ? `${(counters.miles / 1000000).toFixed(0)}m` : counters.miles,
       suffix: '+',
       label: 'Miles Driven',
@@ -117,7 +118,7 @@ const FactsSection = () => {
   };
 
   return (
-    <section id="facts-section" className="relative py-32">
+    <section id="facts-section" className="relative py-32 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         {/* Gradient overlays */}
@@ -167,7 +168,10 @@ const FactsSection = () => {
               <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center transition-all duration-300 hover:border-white/40 hover:transform hover:scale-105">
                 {/* Icon container */}
                 <div className={`relative mb-6 inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-r ${fact.gradient} shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}>
-                  <i className={`fas ${fact.icon} text-3xl text-white`}></i>
+                  {fact.icon === 'car' && <Car className="w-8 h-8 text-white" />}
+                  {fact.icon === 'users' && <Users className="w-8 h-8 text-white" />}
+                  {fact.icon === 'calendar-check' && <CalendarCheck className="w-8 h-8 text-white" />}
+                  {fact.icon === 'route' && <Route className="w-8 h-8 text-white" />}
                   
                   {/* Icon glow */}
                   <div className={`absolute inset-0 bg-gradient-to-r ${fact.gradient} rounded-2xl blur-lg opacity-50`}></div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Zap, Shield, MapPin, Headphones, Car } from 'lucide-react';
 
 const MobileAppSection = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -28,7 +29,7 @@ const MobileAppSection = () => {
   }, []);
 
   return (
-    <section id="mobile-app-section" className="relative py-32">
+    <section id="mobile-app-section" className="relative py-32 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         {/* Gradient overlays */}
@@ -70,10 +71,10 @@ const MobileAppSection = () => {
             {/* Feature List */}
             <div className="space-y-4">
               {[
-                { icon: 'fa-bolt', text: 'Lightning fast booking process' },
-                { icon: 'fa-shield-alt', text: 'Secure payment gateway' },
-                { icon: 'fa-map-marked-alt', text: 'Real-time GPS tracking' },
-                { icon: 'fa-headset', text: '24/7 customer support' }
+                { icon: 'zap', text: 'Lightning fast booking process' },
+                { icon: 'shield', text: 'Secure payment gateway' },
+                { icon: 'map-pin', text: 'Real-time GPS tracking' },
+                { icon: 'headphones', text: '24/7 customer support' }
               ].map((feature, index) => (
                 <div 
                   key={index}
@@ -81,7 +82,10 @@ const MobileAppSection = () => {
                   style={{transitionDelay: `${300 + index * 100}ms`}}
                 >
                   <div className="relative flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center shadow-lg">
-                    <i className={`fas ${feature.icon} text-white text-lg`}></i>
+                    {feature.icon === 'zap' && <Zap className="w-5 h-5 text-white" />}
+                    {feature.icon === 'shield' && <Shield className="w-5 h-5 text-white" />}
+                    {feature.icon === 'map-pin' && <MapPin className="w-5 h-5 text-white" />}
+                    {feature.icon === 'headphones' && <Headphones className="w-5 h-5 text-white" />}
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur-lg opacity-50"></div>
                   </div>
                   <span className="text-gray-300 font-medium">{feature.text}</span>
@@ -155,7 +159,7 @@ const MobileAppSection = () => {
                 <div className="absolute inset-[10px] bg-gradient-to-br from-purple-100 to-pink-100 rounded-[28px] flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl mx-auto mb-3 flex items-center justify-center">
-                      <i className="fas fa-car text-white text-2xl"></i>
+                      <Car className="w-8 h-8 text-white" />
                     </div>
                     <div className="text-gray-800 font-bold text-lg">Rentify</div>
                   </div>

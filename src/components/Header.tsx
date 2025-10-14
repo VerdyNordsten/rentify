@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Phone } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,21 +11,21 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between items-center py-4 sm:py-6 relative">
+    <header className="flex justify-between items-center py-4 sm:py-6 relative z-20">
       <div className="flex items-center space-x-3">
         <Link to="/" className="flex items-center">
-          <img src="/brand-logo.png" alt="Rentify" className="h-8 sm:h-10 w-auto" />
+          <img src="/brand-logo.png" alt="Rentify" className="h-6 sm:h-7 w-2/4" />
         </Link>
       </div>
       
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+      <nav className="hidden md:flex items-center justify-center flex-1 space-x-6 lg:space-x-8">
         <Link
           to="/"
           className={`font-semibold cursor-pointer transition-colors text-sm ${
             isActiveLink('/')
-              ? 'text-brand-purple border-b-2 border-brand-purple pb-1'
-              : 'text-brand-dark hover:text-brand-purple'
+              ? 'text-purple-600 border-b-2 border-purple-600 pb-1'
+              : 'text-gray-700 hover:text-purple-600'
           }`}
         >
           Home
@@ -33,8 +34,8 @@ const Header = () => {
           to="/vehicles"
           className={`font-semibold cursor-pointer transition-colors text-sm ${
             isActiveLink('/vehicles')
-              ? 'text-brand-purple border-b-2 border-brand-purple pb-1'
-              : 'text-brand-dark hover:text-brand-purple'
+              ? 'text-purple-600 border-b-2 border-purple-600 pb-1'
+              : 'text-gray-700 hover:text-purple-600'
           }`}
         >
           Vehicles
@@ -43,8 +44,8 @@ const Header = () => {
           to="/details"
           className={`font-semibold cursor-pointer transition-colors text-sm ${
             isActiveLink('/details')
-              ? 'text-brand-purple border-b-2 border-brand-purple pb-1'
-              : 'text-brand-dark hover:text-brand-purple'
+              ? 'text-purple-600 border-b-2 border-purple-600 pb-1'
+              : 'text-gray-700 hover:text-purple-600'
           }`}
         >
           Details
@@ -53,8 +54,8 @@ const Header = () => {
           to="/about"
           className={`font-semibold cursor-pointer transition-colors text-sm ${
             isActiveLink('/about')
-              ? 'text-brand-purple border-b-2 border-brand-purple pb-1'
-              : 'text-brand-dark hover:text-brand-purple'
+              ? 'text-purple-600 border-b-2 border-purple-600 pb-1'
+              : 'text-gray-700 hover:text-purple-600'
           }`}
         >
           About Us
@@ -63,8 +64,8 @@ const Header = () => {
           to="/contact"
           className={`font-semibold cursor-pointer transition-colors text-sm ${
             isActiveLink('/contact')
-              ? 'text-brand-purple border-b-2 border-brand-purple pb-1'
-              : 'text-brand-dark hover:text-brand-purple'
+              ? 'text-purple-600 border-b-2 border-purple-600 pb-1'
+              : 'text-gray-700 hover:text-purple-600'
           }`}
         >
           Contact Us
@@ -72,13 +73,13 @@ const Header = () => {
       </nav>
       
       {/* Desktop Contact Info */}
-      <div className="hidden sm:flex items-center space-x-3">
-        <div className="bg-brand-purple/10 text-brand-purple p-2 sm:p-3 rounded-full">
-          <i className="fa-solid fa-phone text-sm"></i>
+      <div className="hidden sm:flex items-center space-x-3 flex-1 justify-end">
+        <div className="bg-purple-100 text-purple-600 p-2 sm:p-3 rounded-full">
+          <Phone className="w-4 h-4" />
         </div>
         <div>
-          <p className="text-xs sm:text-sm text-brand-gray-medium">Need help?</p>
-          <p className="font-bold text-sm">+996 247-1680</p>
+          <p className="text-xs sm:text-sm text-gray-500">Need help?</p>
+          <p className="font-bold text-sm text-gray-900">+996 247-1680</p>
         </div>
       </div>
       
@@ -88,9 +89,9 @@ const Header = () => {
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Toggle menu"
       >
-        <span className={`block w-6 h-0.5 bg-brand-dark transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-        <span className={`block w-6 h-0.5 bg-brand-dark transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-        <span className={`block w-6 h-0.5 bg-brand-dark transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+        <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+        <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+        <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
       </button>
       
       {/* Mobile Menu */}
@@ -101,8 +102,8 @@ const Header = () => {
               to="/"
               className={`font-semibold cursor-pointer transition-colors py-2 ${
                 isActiveLink('/')
-                  ? 'text-brand-purple border-b-2 border-brand-purple'
-                  : 'text-brand-dark hover:text-brand-purple'
+                  ? 'text-purple-600 border-b-2 border-purple-600'
+                  : 'text-gray-700 hover:text-purple-600'
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
@@ -112,8 +113,8 @@ const Header = () => {
               to="/vehicles"
               className={`font-semibold cursor-pointer transition-colors py-2 ${
                 isActiveLink('/vehicles')
-                  ? 'text-brand-purple border-b-2 border-brand-purple'
-                  : 'text-brand-dark hover:text-brand-purple'
+                  ? 'text-purple-600 border-b-2 border-purple-600'
+                  : 'text-gray-700 hover:text-purple-600'
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
@@ -123,8 +124,8 @@ const Header = () => {
               to="/details"
               className={`font-semibold cursor-pointer transition-colors py-2 ${
                 isActiveLink('/details')
-                  ? 'text-brand-purple border-b-2 border-brand-purple'
-                  : 'text-brand-dark hover:text-brand-purple'
+                  ? 'text-purple-600 border-b-2 border-purple-600'
+                  : 'text-gray-700 hover:text-purple-600'
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
@@ -134,8 +135,8 @@ const Header = () => {
               to="/about"
               className={`font-semibold cursor-pointer transition-colors py-2 ${
                 isActiveLink('/about')
-                  ? 'text-brand-purple border-b-2 border-brand-purple'
-                  : 'text-brand-dark hover:text-brand-purple'
+                  ? 'text-purple-600 border-b-2 border-purple-600'
+                  : 'text-gray-700 hover:text-purple-600'
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
@@ -145,8 +146,8 @@ const Header = () => {
               to="/contact"
               className={`font-semibold cursor-pointer transition-colors py-2 ${
                 isActiveLink('/contact')
-                  ? 'text-brand-purple border-b-2 border-brand-purple'
-                  : 'text-brand-dark hover:text-brand-purple'
+                  ? 'text-purple-600 border-b-2 border-purple-600'
+                  : 'text-gray-700 hover:text-purple-600'
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
@@ -155,12 +156,12 @@ const Header = () => {
             
             {/* Mobile Contact Info */}
             <div className="flex items-center space-x-3 pt-3 border-t border-gray-200">
-              <div className="bg-brand-purple/10 text-brand-purple p-2 rounded-full">
-                <i className="fa-solid fa-phone text-sm"></i>
+              <div className="bg-purple-100 text-purple-600 p-2 rounded-full">
+                <Phone className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-xs text-brand-gray-medium">Need help?</p>
-                <p className="font-bold text-sm">+996 247-1680</p>
+                <p className="text-xs text-gray-500">Need help?</p>
+                <p className="font-bold text-sm text-gray-900">+996 247-1680</p>
               </div>
             </div>
           </nav>

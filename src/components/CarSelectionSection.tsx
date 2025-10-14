@@ -116,7 +116,7 @@ const CarSelectionSection = () => {
   ];
 
   return (
-    <section id="car-selection-section" className="relative py-32">
+    <section id="car-selection-section" className="relative py-32 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         {/* Gradient overlays */}

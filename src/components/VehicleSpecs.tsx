@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Settings, Fuel, DoorOpen, Snowflake, Users, Route, Check } from 'lucide-react';
 
 interface VehicleSpecsProps {
   price: number;
@@ -32,32 +33,32 @@ const VehicleSpecs = ({
       <h2 className="text-2xl font-bold mb-6 text-brand-dark">Technical Specification</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
         <div className="bg-brand-gray-light rounded-lg p-4 text-center">
-          <i className="fa-solid fa-gears text-2xl mb-2 text-brand-gray-medium"></i>
+          <Settings className="w-6 h-6 mb-2 text-brand-gray-medium" />
           <h3 className="font-semibold text-brand-dark">Gear Box</h3>
           <p className="text-sm text-brand-gray-medium">{transmission}</p>
         </div>
         <div className="bg-brand-gray-light rounded-lg p-4 text-center">
-          <i className="fa-solid fa-gas-pump text-2xl mb-2 text-brand-gray-medium"></i>
+          <Fuel className="w-6 h-6 mb-2 text-brand-gray-medium" />
           <h3 className="font-semibold text-brand-dark">Fuel</h3>
           <p className="text-sm text-brand-gray-medium">{fuel}</p>
         </div>
         <div className="bg-brand-gray-light rounded-lg p-4 text-center">
-          <i className="fa-solid fa-car-door text-2xl mb-2 text-brand-gray-medium"></i>
+          <DoorOpen className="w-6 h-6 mb-2 text-brand-gray-medium" />
           <h3 className="font-semibold text-brand-dark">Doors</h3>
           <p className="text-sm text-brand-gray-medium">{doors}</p>
         </div>
         <div className="bg-brand-gray-light rounded-lg p-4 text-center">
-          <i className="fa-solid fa-snowflake text-2xl mb-2 text-brand-gray-medium"></i>
+          <Snowflake className="w-6 h-6 mb-2 text-brand-gray-medium" />
           <h3 className="font-semibold text-brand-dark">Air Conditioner</h3>
           <p className="text-sm text-brand-gray-medium">{airConditioner ? 'Yes' : 'No'}</p>
         </div>
         <div className="bg-brand-gray-light rounded-lg p-4 text-center">
-          <i className="fa-solid fa-user-group text-2xl mb-2 text-brand-gray-medium"></i>
+          <Users className="w-6 h-6 mb-2 text-brand-gray-medium" />
           <h3 className="font-semibold text-brand-dark">Seats</h3>
           <p className="text-sm text-brand-gray-medium">{seats}</p>
         </div>
         <div className="bg-brand-gray-light rounded-lg p-4 text-center">
-          <i className="fa-solid fa-route text-2xl mb-2 text-brand-gray-medium"></i>
+          <Route className="w-6 h-6 mb-2 text-brand-gray-medium" />
           <h3 className="font-semibold text-brand-dark">Distance</h3>
           <p className="text-sm text-brand-gray-medium">{distance}</p>
         </div>
@@ -75,7 +76,7 @@ const VehicleSpecs = ({
         {equipment.map((item, index) => (
           <div key={index} className="flex items-center gap-x-2">
             <span className="w-6 h-6 flex items-center justify-center bg-brand-purple/10 rounded-full">
-              <i className="fa-solid fa-check text-brand-purple text-xs"></i>
+              <Check className="w-3 h-3 text-brand-purple" />
             </span>
             <span>{item}</span>
           </div>

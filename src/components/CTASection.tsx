@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Car, CheckCircle, MapPin, Search, Lock } from 'lucide-react';
 
 const CTASection = () => {
   const [city, setCity] = useState('');
@@ -37,7 +38,7 @@ const CTASection = () => {
   };
 
   return (
-    <section id="cta-section" className="relative py-32">
+    <section id="cta-section" className="relative py-32 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         {/* Gradient overlays */}
@@ -64,7 +65,7 @@ const CTASection = () => {
           
           {/* Large car icon */}
           <div className="absolute right-0 bottom-0 text-white/5 text-[200px] transform translate-x-20 translate-y-20">
-            <i className="fa-solid fa-car-rear"></i>
+            <Car className="w-full h-full" />
           </div>
 
           <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -93,17 +94,17 @@ const CTASection = () => {
               {/* Benefits */}
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: 'fa-check-circle', text: 'Best price guarantee' },
-                  { icon: 'fa-check-circle', text: '24/7 customer support' },
-                  { icon: 'fa-check-circle', text: 'Free cancellation' },
-                  { icon: 'fa-check-circle', text: 'Instant confirmation' }
+                  { icon: 'check-circle', text: 'Best price guarantee' },
+                  { icon: 'check-circle', text: '24/7 customer support' },
+                  { icon: 'check-circle', text: 'Free cancellation' },
+                  { icon: 'check-circle', text: 'Instant confirmation' }
                 ].map((benefit, index) => (
                   <div 
                     key={index}
                     className={`flex items-center space-x-2 transition-all duration-500 ${isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                     style={{transitionDelay: `${300 + index * 100}ms`}}
                   >
-                    <i className={`${benefit.icon} text-green-400`}></i>
+                    <CheckCircle className="w-4 h-4 text-green-400" />
                     <span className="text-gray-200">{benefit.text}</span>
                   </div>
                 ))}
@@ -138,7 +139,7 @@ const CTASection = () => {
                           onFocus={() => setIsFocused(true)}
                           onBlur={() => setIsFocused(false)}
                         />
-                        <i className="fas fa-map-marker-alt absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <MapPin className="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
                       </div>
                     </div>
 
@@ -172,7 +173,7 @@ const CTASection = () => {
                       <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 opacity-90 group-hover:opacity-100 blur-sm transition-opacity"></span>
                       <span className="relative inset-0 rounded-2xl bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500"></span>
                       <span className="relative flex items-center justify-center w-full py-3 rounded-2xl bg-gray-900/60 backdrop-blur-sm">
-                        <i className="fas fa-search mr-3 transform transition-transform duration-300 group-hover:scale-110"></i>
+                        <Search className="w-5 h-5 mr-3 transform transition-transform duration-300 group-hover:scale-110" />
                         Search Available Cars
                       </span>
                     </Button>
@@ -180,7 +181,7 @@ const CTASection = () => {
 
                   <div className="mt-6 text-center">
                     <p className="text-gray-300 text-sm">
-                      <i className="fas fa-lock mr-2"></i>
+                      <Lock className="w-4 h-4 mr-2" />
                       Secure booking • No hidden fees
                     </p>
                   </div>

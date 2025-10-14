@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowRight, Settings, Fuel, Snowflake } from 'lucide-react';
 
 interface Vehicle {
   id: number;
@@ -26,7 +27,7 @@ const RelatedVehicles = ({ vehicles }: RelatedVehiclesProps) => {
             to="/vehicles"
             className="font-semibold text-brand-dark hover:text-brand-purple transition-colors flex items-center gap-x-2"
           >
-            View All <i className="fa-solid fa-arrow-right"></i>
+            View All <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -54,13 +55,13 @@ const RelatedVehicles = ({ vehicles }: RelatedVehiclesProps) => {
                 </div>
                 <div className="flex items-center justify-between text-sm text-brand-gray-medium">
                   <span className="flex items-center gap-x-2">
-                    <i className="fa-solid fa-gears"></i> {vehicle.transmission}
+                    <Settings className="w-4 h-4" /> {vehicle.transmission}
                   </span>
                   <span className="flex items-center gap-x-2">
-                    <i className="fa-solid fa-gas-pump"></i> {vehicle.fuel}
+                    <Fuel className="w-4 h-4" /> {vehicle.fuel}
                   </span>
                   <span className="flex items-center gap-x-2">
-                    <i className="fa-solid fa-snowflake"></i> {vehicle.airConditioner ? 'Air Conditioner' : 'No Air Conditioner'}
+                    <Snowflake className="w-4 h-4" /> {vehicle.airConditioner ? 'Air Conditioner' : 'No Air Conditioner'}
                   </span>
                 </div>
               </CardContent>

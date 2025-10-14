@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Settings, Fuel, Snowflake } from 'lucide-react';
 
 interface Vehicle {
   id: number;
@@ -37,13 +38,13 @@ const VehicleCard = ({ vehicle }: VehicleCardProps) => {
         </div>
         <div className="flex items-center justify-between text-sm text-brand-gray-medium">
           <span className="flex items-center gap-x-2">
-            <i className="fa-solid fa-gears"></i> {vehicle.transmission}
+            <Settings className="w-4 h-4" /> {vehicle.transmission}
           </span>
           <span className="flex items-center gap-x-2">
-            <i className="fa-solid fa-gas-pump"></i> {vehicle.fuel}
+            <Fuel className="w-4 h-4" /> {vehicle.fuel}
           </span>
           <span className="flex items-center gap-x-2">
-            <i className="fa-solid fa-snowflake"></i> {vehicle.airConditioner ? 'Air Conditioner' : 'No Air Conditioner'}
+            <Snowflake className="w-4 h-4" /> {vehicle.airConditioner ? 'Air Conditioner' : 'No Air Conditioner'}
           </span>
         </div>
       </CardContent>

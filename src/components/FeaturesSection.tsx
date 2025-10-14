@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { MapPin, Car, Wallet } from 'lucide-react';
 
 const FeaturesSection = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -31,7 +32,7 @@ const FeaturesSection = () => {
   const features = [
     {
       id: 1,
-      icon: 'fa-location-dot',
+      icon: 'map-pin',
       title: 'Availability',
       description: 'Diam tincidunt tincidunt erat at semper fermentum, id ultricies quis',
       gradient: 'from-purple-600 to-pink-600',
@@ -39,7 +40,7 @@ const FeaturesSection = () => {
     },
     {
       id: 2,
-      icon: 'fa-car',
+      icon: 'car',
       title: 'Comfort',
       description: 'Gravida auctor fermentum morbi vulputate ac egestas orcietium convallis',
       gradient: 'from-blue-600 to-cyan-600',
@@ -47,7 +48,7 @@ const FeaturesSection = () => {
     },
     {
       id: 3,
-      icon: 'fa-wallet',
+      icon: 'wallet',
       title: 'Savings',
       description: 'Pretium convallis id diam sed commodo vestibulum lobortis volutpat',
       gradient: 'from-green-600 to-emerald-600',
@@ -56,7 +57,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section id="features-section" className="relative py-32">
+    <section id="features-section" className="relative py-32 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         {/* Gradient overlays */}
@@ -107,7 +108,9 @@ const FeaturesSection = () => {
               <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 h-full transition-all duration-300 hover:border-white/40 hover:transform hover:scale-105 flex flex-col items-center text-center">
                 {/* Icon container */}
                 <div className={`relative mb-6 flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-r ${feature.gradient} shadow-2xl transition-all duration-300 ${hoveredFeature === feature.id ? 'scale-110 rotate-6' : ''}`}>
-                  <i className={`fas ${feature.icon} text-3xl text-white`}></i>
+                  {feature.icon === 'map-pin' && <MapPin className="w-8 h-8 text-white" />}
+                  {feature.icon === 'car' && <Car className="w-8 h-8 text-white" />}
+                  {feature.icon === 'wallet' && <Wallet className="w-8 h-8 text-white" />}
                   
                   {/* Icon glow */}
                   <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} rounded-2xl blur-lg opacity-50`}></div>

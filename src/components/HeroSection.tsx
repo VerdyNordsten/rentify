@@ -14,7 +14,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
-import { CalendarIcon } from 'lucide-react';
+import { CalendarIcon, Car, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const HeroSection = () => {
@@ -56,7 +56,7 @@ const HeroSection = () => {
 
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <section className="relative min-h-screen overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         {/* Gradient overlays */}
@@ -115,16 +115,8 @@ const HeroSection = () => {
                 <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 overflow-hidden rounded-full">
                   <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-90 group-hover:opacity-100 transition-opacity"></span>
                   <span className="relative flex items-center">
-                    <i className="fas fa-car mr-3 text-xl group-hover:translate-x-1 transition-transform"></i>
+                    <Car className="w-5 h-5 mr-3 group-hover:translate-x-1 transition-transform" />
                     Explore All
-                  </span>
-                </button>
-                
-                <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 overflow-hidden rounded-full border-2 border-white/30">
-                  <span className="absolute inset-0 bg-white/10 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  <span className="relative flex items-center">
-                    <i className="fas fa-play-circle mr-3 text-xl group-hover:animate-spin"></i>
-                    Watch Demo
                   </span>
                 </button>
               </div>
@@ -183,7 +175,6 @@ const HeroSection = () => {
                             </SelectGroup>
                           </SelectContent>
                         </Select>
-                        <i className="fas fa-car absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-10"></i>
                       </div>
                     </div>
 
@@ -210,7 +201,6 @@ const HeroSection = () => {
                             </SelectGroup>
                           </SelectContent>
                         </Select>
-                        <i className="fas fa-map-marker-alt absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-10"></i>
                       </div>
                     </div>
 
@@ -237,7 +227,6 @@ const HeroSection = () => {
                             </SelectGroup>
                           </SelectContent>
                         </Select>
-                        <i className="fas fa-map-marker-alt absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-10"></i>
                       </div>
                     </div>
 
@@ -304,15 +293,14 @@ const HeroSection = () => {
                     <button type="submit" className="group relative w-full inline-flex items-center justify-center py-4 text-lg font-bold text-white transition-all duration-300 overflow-hidden rounded-xl">
                       <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-90 group-hover:opacity-100 transition-opacity"></span>
                       <span className="relative flex items-center justify-center w-full">
-                        <i className="fas fa-check-circle mr-3 text-xl group-hover:scale-110 transition-transform"></i>
                         Book Now
                       </span>
                     </button>
                   </form>
 
-                  <div className="mt-6 text-center">
-                    <p className="text-gray-400 text-sm">
-                      <i className="fas fa-shield-alt mr-2"></i>
+                  <div className="mt-3 text-center">
+                    <p className="text-gray-400 text-sm flex items-center justify-center">
+                      <Shield className="w-4 h-4 mr-2" />
                       Secure booking • No hidden fees
                     </p>
                   </div>
