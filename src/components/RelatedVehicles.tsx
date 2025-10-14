@@ -1,20 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Settings, Fuel, Snowflake } from 'lucide-react';
-
-interface Vehicle {
-  id: number;
-  name: string;
-  type: string;
-  price: number;
-  images: string[];
-  transmission: string;
-  fuel: string;
-  airConditioner: boolean;
-}
+import { VehicleDetail } from '@/types/vehicle';
 
 interface RelatedVehiclesProps {
-  vehicles: Vehicle[];
+  vehicles: VehicleDetail[];
 }
 
 const RelatedVehicles = ({ vehicles }: RelatedVehiclesProps) => {

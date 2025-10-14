@@ -1,36 +1,30 @@
 import { Button } from '@/components/ui/button';
+import { VehicleFilter, VEHICLE_FILTER_LABELS } from '@/types/vehicle';
 
 interface VehicleFiltersProps {
-  activeFilter: string;
-  setActiveFilter: (filter: string) => void;
+  activeFilter: VehicleFilter;
+  setActiveFilter: (filter: VehicleFilter) => void;
 }
 
 const VehicleFilters = ({ activeFilter, setActiveFilter }: VehicleFiltersProps) => {
-  const filters = [
-    { id: 'all', label: 'All vehicles', icon: null },
-    { id: 'sedan', label: 'Sedan', icon: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/21d75a4476-0f0930aca3d763ce80f3.png' },
-    { id: 'cabriolet', label: 'Cabriolet', icon: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/77f4acbf32-16ca6940a3fff73d8294.png' },
-    { id: 'pickup', label: 'Pickup', icon: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/c2d79bf0f9-306c80a49e3654abb592.png' },
-    { id: 'suv', label: 'SUV', icon: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/90559733be-0171dcf75ce3a4467b75.png' },
-    { id: 'minivan', label: 'Minivan', icon: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/480d9e7c70-e13033bda65d1c4c3707.png' }
-  ];
+  const filters = Object.entries(VEHICLE_FILTER_LABELS).map(([id, label]) => ({
+    id: id as VehicleFilter,
+    label
+  }));
 
   return (
-    <div className="flex justify-center items-center flex-wrap gap-4">
+    <div className="flex justify-center items-center flex-wrap gap-3 sm:gap-4">
       {filters.map((filter) => (
         <Button
           key={filter.id}
           variant={activeFilter === filter.id ? 'default' : 'outline'}
           className={`${
             activeFilter === filter.id
-              ? 'bg-brand-purple text-white shadow-lg shadow-brand-purple/20'
-              : 'bg-brand-gray-100 text-brand-gray-medium hover:bg-brand-gray-200'
-          } px-6 py-3 rounded-full font-semibold text-sm flex items-center gap-x-2`}
+              ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/25 transform scale-105'
+              : 'bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 hover:border-white/40 hover:shadow-lg'
+          } px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-105`}
           onClick={() => setActiveFilter(filter.id)}
         >
-          {filter.icon && (
-            <img className="w-6 h-4 object-contain" src={filter.icon} alt={`icon of a ${filter.label.toLowerCase()} car, line art, simple, black and white`} />
-          )}
           {filter.label}
         </Button>
       ))}

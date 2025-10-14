@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '@/components/Footer';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,13 +6,10 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="bg-white" style={{ color: '#1A1A1A' }}>
+    <div style={{ color: '#1A1A1A' }} className="w-screen overflow-x-hidden">
       <main className="w-full">
         {children}
       </main>
-      <div className="container">
-        <Footer />
-      </div>
     </div>
   );
 };

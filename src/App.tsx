@@ -11,7 +11,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/vehicles" element={<Vehicles />} />
         <Route path="/vehicles/:id" element={<VehicleDetail />} />
-        {/* Add more routes here as needed */}
       </Routes>
     </Router>
   );

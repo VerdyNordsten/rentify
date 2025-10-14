@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { MapPin, Car, Wallet } from 'lucide-react';
 
 const FeaturesSection = () => {
@@ -58,22 +58,8 @@ const FeaturesSection = () => {
 
   return (
     <section id="features-section" className="relative py-32 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
-        
-        {/* Floating particles */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full filter blur-3xl animate-blob"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl animate-blob" style={{animationDelay: '2s'}}></div>
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-grid-white/5" style={{backgroundSize: '50px 50px'}}></div>
-      </div>
 
-      {/* Content */}
       <div className="relative z-10 container">
-        {/* Section Header */}
         <div className={`text-center mb-20 transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-6">
@@ -91,7 +77,6 @@ const FeaturesSection = () => {
           </p>
         </div>
 
-        {/* Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <div
@@ -101,22 +86,17 @@ const FeaturesSection = () => {
               onMouseEnter={() => setHoveredFeature(feature.id)}
               onMouseLeave={() => setHoveredFeature(null)}
             >
-              {/* Glow effect */}
               <div className={`absolute inset-0 ${feature.bgGlow} rounded-3xl blur-xl transition-all duration-300 ${hoveredFeature === feature.id ? 'opacity-100 scale-110' : 'opacity-50 scale-100'}`}></div>
               
-              {/* Card */}
               <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 h-full transition-all duration-300 hover:border-white/40 hover:transform hover:scale-105 flex flex-col items-center text-center">
-                {/* Icon container */}
                 <div className={`relative mb-6 flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-r ${feature.gradient} shadow-2xl transition-all duration-300 ${hoveredFeature === feature.id ? 'scale-110 rotate-6' : ''}`}>
                   {feature.icon === 'map-pin' && <MapPin className="w-8 h-8 text-white" />}
                   {feature.icon === 'car' && <Car className="w-8 h-8 text-white" />}
                   {feature.icon === 'wallet' && <Wallet className="w-8 h-8 text-white" />}
                   
-                  {/* Icon glow */}
                   <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} rounded-2xl blur-lg opacity-50`}></div>
                 </div>
                 
-                {/* Content */}
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 transition-colors duration-300 group-hover:text-purple-200">
                   {feature.title}
                 </h3>
@@ -130,17 +110,6 @@ const FeaturesSection = () => {
         </div>
       </div>
 
-      <style>{`
-        @keyframes blob {
-          0% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-          100% { transform: translate(0px, 0px) scale(1); }
-        }
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-      `}</style>
     </section>
   );
 };

@@ -1,20 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Star, X, Heart, Settings, Fuel, Users, Wind } from 'lucide-react';
-
-export interface Car {
-  id: number;
-  name: string;
-  type: string;
-  price: number;
-  image: string;
-  transmission: string;
-  fuel: string;
-  airConditioner: boolean;
-  seats: number;
-  rating: number;
-  reviews: number;
-  available: boolean;
-}
+import { Car } from '@/types/vehicle';
 
 interface CarCardProps {
   car: Car;
@@ -69,16 +55,13 @@ const CarCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Glow effect */}
       <div
         className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"
       ></div>
       
-      {/* Card */}
       <div className={`relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden transition-all duration-300 ${
         isHovered ? 'border-white/40' : ''
       } ${isSelected ? 'ring-2 ring-purple-400' : ''}`}>
-        {/* Car Image */}
         <div className="relative h-56 bg-gray-900/30 overflow-hidden">
           <img
             className={`h-full w-full object-contain transition-all duration-700 ${
@@ -88,10 +71,8 @@ const CarCard = ({
             alt={`${car.name} ${car.type}`}
           />
           
-          {/* Overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
           
-          {/* Status badges */}
           <div className="absolute top-4 left-4 flex gap-2">
             {!car.available && (
               <div className="bg-red-500/80 backdrop-blur-sm text-white rounded-lg px-3 py-1 text-sm font-bold">
@@ -105,7 +86,6 @@ const CarCard = ({
             </div>
           </div>
 
-          {/* Quick actions */}
           <div className={`absolute top-4 right-4 transition-all duration-300 ${
             isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
           }`}>
@@ -122,9 +102,7 @@ const CarCard = ({
           </div>
         </div>
 
-        {/* Car Details */}
         <div className="p-4 sm:p-6">
-          {/* Car Name and Price */}
           <div className="flex justify-between items-start mb-4">
             <div>
               <h3 className="text-xl font-bold text-white mb-1 group-hover:text-purple-200 transition-colors">
@@ -140,13 +118,11 @@ const CarCard = ({
             </div>
           </div>
           
-          {/* Rating and Reviews */}
           <div className="mb-4">
             <StarRating rating={car.rating} />
             <span className="text-gray-400 text-xs ml-2">({car.reviews} reviews)</span>
           </div>
           
-          {/* Specifications */}
           <div className="grid grid-cols-2 gap-2 mb-6 text-sm text-gray-300">
             <div className="flex items-center">
               <Settings className="w-4 h-4 mr-2 text-purple-400" />
@@ -166,7 +142,6 @@ const CarCard = ({
             </div>
           </div>
 
-          {/* Action Buttons */}
           <div className="flex gap-3">
             <button
               onClick={handleViewDetails}

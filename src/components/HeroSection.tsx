@@ -34,7 +34,6 @@ const HeroSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simple validation
     if (!carType || !rentalPlace || !returnPlace || !rentalDate || !returnDate) {
       alert('Please fill in all fields');
       return;
@@ -46,49 +45,24 @@ const HeroSection = () => {
       rentalDate: rentalDate?.toISOString(),
       returnDate: returnDate?.toISOString()
     });
-    // Reset form after submission
-    setCarType('');
-    setRentalPlace('');
-    setReturnPlace('');
-    setRentalDate(undefined);
-    setReturnDate(undefined);
   };
 
-
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
-        
-        {/* Floating particles with improved animation */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-96 h-96 bg-blue-500/20 rounded-full filter blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-pink-500/20 rounded-full filter blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-grid-white/5" style={{backgroundSize: '50px 50px'}}></div>
-        
-        {/* Car image with dramatic effect - positioned to show only half */}
-        <div className="hero-image-container absolute inset-0 flex items-center justify-center opacity-15 lg:opacity-20">
-          <div className={`relative transition-all duration-1500 ${isAnimated ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}>
-            <img
-              src="https://d102sycao8uwt8.cloudfront.net/armored_lamborghini_urus_suv_8245d79c0e.png"
-              alt="Luxury SUV"
-              className="w-full max-w-2xl h-auto object-contain filter drop-shadow-2xl scale-60"
-            />
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent blur-xl"></div>
-          </div>
+    <section className="relative min-h-screen overflow-hidden pt-20">
+      <div className="hero-image-container absolute inset-0 flex items-center justify-center opacity-15 lg:opacity-20">
+        <div className={`relative transition-all duration-1500 ${isAnimated ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}>
+          <img
+            src="https://d102sycao8uwt8.cloudfront.net/armored_lamborghini_urus_suv_8245d79c0e.png"
+            alt="Luxury SUV"
+            className="w-full max-w-2xl h-auto object-contain filter drop-shadow-2xl scale-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent blur-xl"></div>
         </div>
       </div>
 
-      {/* Content */}
       <div className="relative z-10 flex items-center min-h-screen">
         <div className="container py-12">
           <div className="grid lg:grid-cols-5 gap-12 items-center">
-            {/* Left content */}
             <div className={`lg:col-span-2 text-white space-y-8 transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
               <div className="space-y-6">
                 <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-purple-500/30 rounded-full text-sm font-medium text-purple-200">
@@ -121,7 +95,6 @@ const HeroSection = () => {
                 </button>
               </div>
 
-              {/* Stats with improved design */}
               <div className="grid grid-cols-3 gap-6 pt-8">
                 <div className={`text-center transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: '200ms'}}>
                   <div className="text-3xl font-bold text-white mb-2">500+</div>
@@ -138,13 +111,10 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Right content - Booking form with improved design */}
             <div className={`lg:col-span-3 transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
               <div className="relative">
-                {/* Glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-3xl opacity-20"></div>
                 
-                {/* Form container */}
                 <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-8">
                   <div className="text-center mb-8">
                     <h3 className="text-3xl font-bold text-white mb-2">Book Your Ride</h3>
@@ -311,7 +281,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll indicator with improved design */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="flex flex-col items-center text-white/60">
           <span className="text-sm mb-2">Scroll to explore</span>

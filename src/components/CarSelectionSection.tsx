@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import CarCard, { Car } from './CarCard';
+import { useState, useEffect } from 'react';
+import CarCard from './CarCard';
+import { Car } from '@/types/vehicle';
+import { vehicleService } from '@/services/vehicleService';
 
 const CarSelectionSection = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -28,112 +30,12 @@ const CarSelectionSection = () => {
     };
   }, []);
 
-  const cars: Car[] = [
-    {
-      id: 1,
-      name: 'Mercedes E-Class',
-      type: 'Luxury Sedan',
-      price: 89,
-      image: 'https://cdn.pixabay.com/photo/2021/08/31/19/37/lamborghini-aventador-6589974_1280.png',
-      transmission: 'Automatic',
-      fuel: 'Premium',
-      airConditioner: true,
-      seats: 5,
-      rating: 4.8,
-      reviews: 124,
-      available: true
-    },
-    {
-      id: 2,
-      name: 'Mercedes AMG GT',
-      type: 'Sports Car',
-      price: 150,
-      image: 'https://cdn.pixabay.com/photo/2021/08/31/19/37/lamborghini-aventador-6589974_1280.png',
-      transmission: 'Automatic',
-      fuel: 'Premium',
-      airConditioner: true,
-      seats: 2,
-      rating: 4.9,
-      reviews: 89,
-      available: true
-    },
-    {
-      id: 3,
-      name: 'Mercedes S-Class',
-      type: 'Ultra Luxury',
-      price: 120,
-      image: 'https://cdn.pixabay.com/photo/2021/08/31/19/37/lamborghini-aventador-6589974_1280.png',
-      transmission: 'Automatic',
-      fuel: 'Premium',
-      airConditioner: true,
-      seats: 5,
-      rating: 4.9,
-      reviews: 156,
-      available: false
-    },
-    {
-      id: 4,
-      name: 'Porsche Cayenne',
-      type: 'Premium SUV',
-      price: 110,
-      image: 'https://cdn.pixabay.com/photo/2021/08/31/19/37/lamborghini-aventador-6589974_1280.png',
-      transmission: 'Automatic',
-      fuel: 'Premium',
-      airConditioner: true,
-      seats: 7,
-      rating: 4.7,
-      reviews: 203,
-      available: true
-    },
-    {
-      id: 5,
-      name: 'Toyota Camry',
-      type: 'Comfort Sedan',
-      price: 65,
-      image: 'https://pictures.dealer.com/fd-DIG_IMAGES/e13f44c9b358594bb1df4d98bab1d6f2.png',
-      transmission: 'Automatic',
-      fuel: 'Hybrid',
-      airConditioner: true,
-      seats: 5,
-      rating: 4.5,
-      reviews: 312,
-      available: true
-    },
-    {
-      id: 6,
-      name: 'Porsche Macan',
-      type: 'Sport SUV',
-      price: 95,
-      image: 'https://di-uploads-pod4.dealerinspire.com/porscheexchange/uploads/2024/03/2024-Porsche-718-Cayman.png',
-      transmission: 'Automatic',
-      fuel: 'Premium',
-      airConditioner: true,
-      seats: 5,
-      rating: 4.8,
-      reviews: 178,
-      available: true
-    }
-  ];
+  const cars: Car[] = vehicleService.getCars();
 
   return (
     <section id="car-selection-section" className="relative py-32 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
-        
-        {/* Floating particles */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-blob"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-500/10 rounded-full filter blur-3xl animate-blob" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-pink-500/10 rounded-full filter blur-3xl animate-blob" style={{animationDelay: '4s'}}></div>
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-grid-white/5" style={{backgroundSize: '50px 50px'}}></div>
-      </div>
-
-      {/* Content */}
+      
       <div className="relative z-10 container">
-        {/* Section Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl lg:text-6xl font-bold leading-tight mb-4">
             <span className="bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
@@ -157,7 +59,6 @@ const CarSelectionSection = () => {
           </div>
         </div>
 
-        {/* Cars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cars.map((car, index) => (
             <CarCard
@@ -170,17 +71,6 @@ const CarSelectionSection = () => {
         </div>
       </div>
 
-      <style>{`
-        @keyframes blob {
-          0% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-          100% { transform: translate(0px, 0px) scale(1); }
-        }
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-      `}</style>
     </section>
   );
 };
