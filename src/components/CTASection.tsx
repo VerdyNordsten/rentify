@@ -53,7 +53,7 @@ const CTASection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container">
         <div className="relative bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 rounded-3xl p-8 sm:p-16 text-white overflow-hidden">
           {/* Background pattern */}
           <div className="absolute inset-0 bg-tire-track opacity-5" style={{ backgroundSize: '500px' }}></div>

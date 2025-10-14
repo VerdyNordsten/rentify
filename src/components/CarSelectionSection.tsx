@@ -132,7 +132,7 @@ const CarSelectionSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container">
         {/* Section Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl lg:text-6xl font-bold leading-tight mb-4">
@@ -150,8 +150,6 @@ const CarSelectionSection = () => {
           
           <div className="mt-8">
             <button className="group relative inline-flex items-center justify-center px-16 py-6 text-lg font-bold text-white transition-all duration-300 hover:duration-300">
-              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 opacity-90 group-hover:opacity-100 blur-sm transition-opacity"></span>
-              <span className="relative inset-0 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600"></span>
               <span className="relative flex items-center px-8 py-4 rounded-full bg-gray-900/80 backdrop-blur-sm">
                 <span>Explore All</span>
               </span>

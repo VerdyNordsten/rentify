@@ -190,12 +190,12 @@ const VehicleDetail = () => {
   return (
     <Layout>
       <section className="py-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <VehicleGallery 
-            images={vehicle.images} 
-            name={vehicle.name} 
+        <div className="container grid lg:grid-cols-2 gap-12 items-start">
+          <VehicleGallery
+            images={vehicle.images}
+            name={vehicle.name}
           />
-          <VehicleSpecs 
+          <VehicleSpecs
             price={vehicle.price}
             transmission={vehicle.transmission}
             fuel={vehicle.fuel}

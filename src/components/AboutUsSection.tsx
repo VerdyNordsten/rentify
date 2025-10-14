@@ -75,7 +75,7 @@ const AboutUsSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container">
         {/* Section Header */}
         <div className={`text-center mb-12 ${isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`} style={{transitionDelay: '200ms'}}>
           <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-4">

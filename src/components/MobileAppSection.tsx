@@ -44,7 +44,7 @@ const MobileAppSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 min-h-[60vh]">
           {/* Left Content */}
           <div className={`flex-1 min-w-[280px] space-y-8 transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>

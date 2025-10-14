@@ -10,9 +10,9 @@ import CTASection from '@/components/CTASection';
 const Home = () => {
   return (
     <Layout>
-      <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 px-0">
+      <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         {/* Global background effects */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-full-width">
           {/* Gradient overlays */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
           

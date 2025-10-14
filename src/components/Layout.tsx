@@ -9,13 +9,13 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="bg-white" style={{ color: '#1A1A1A' }}>
-      <div id="main-container" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="main-container" className="container">
         <Header />
       </div>
-      <main className="px-0">
+      <main className="w-full">
         {children}
       </main>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <Footer />
       </div>
     </div>

@@ -10,11 +10,13 @@ const BrandsShowcase = () => {
 
   return (
     <section className="pb-20">
-      <div className="bg-brand-gray-light rounded-2xl p-10">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-          {brands.map((brand) => (
-            <img key={brand.id} className="h-8 object-contain" src={brand.logo} alt={`${brand.name} logo, black and white`} />
-          ))}
+      <div className="container">
+        <div className="bg-brand-gray-light rounded-2xl p-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            {brands.map((brand) => (
+              <img key={brand.id} className="h-8 object-contain" src={brand.logo} alt={`${brand.name} logo, black and white`} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

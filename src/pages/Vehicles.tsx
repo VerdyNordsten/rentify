@@ -124,17 +124,19 @@ const Vehicles = () => {
   return (
     <Layout>
       <section className="py-16">
-        <div className="text-center mb-10">
+        <div className="container text-center mb-10">
           <h1 className="text-5xl font-extrabold text-brand-dark">Select a vehicle group</h1>
         </div>
-        <VehicleFilters 
-          activeFilter={activeFilter} 
-          setActiveFilter={setActiveFilter} 
-        />
+        <div className="container">
+          <VehicleFilters
+            activeFilter={activeFilter}
+            setActiveFilter={setActiveFilter}
+          />
+        </div>
       </section>
 
       <section className="pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredVehicles.map((vehicle) => (
             <VehicleCard key={vehicle.id} vehicle={vehicle} />
           ))}
