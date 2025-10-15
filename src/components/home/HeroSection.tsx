@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Select,
   SelectContent,
@@ -86,13 +87,13 @@ const HeroSection = () => {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 overflow-hidden rounded-full">
+                <Link to="/vehicles" className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 overflow-hidden rounded-full">
                   <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-90 group-hover:opacity-100 transition-opacity"></span>
                   <span className="relative flex items-center">
                     <Car className="w-5 h-5 mr-3 group-hover:translate-x-1 transition-transform" />
                     Explore All
                   </span>
-                </button>
+                </Link>
               </div>
 
               <div className="grid grid-cols-3 gap-6 pt-8">

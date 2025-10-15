@@ -63,7 +63,6 @@ const VehicleDetailSection = ({ vehicle, onRent }: VehicleDetailSectionProps) =>
             <button
               onClick={() => {
                 navigate('/vehicles');
-                window.scrollTo(0, 0);
               }}
               className="flex items-center text-gray-300 hover:text-purple-300 transition-colors duration-300"
             >

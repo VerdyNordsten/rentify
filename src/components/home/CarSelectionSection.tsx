@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import CarCard from './CarCard';
+import { Link } from 'react-router-dom';
+import CarCard from '../CarCard';
 import { Car } from '@/types/vehicle';
 import { vehicleService } from '@/services/vehicleService';
 
@@ -51,11 +52,11 @@ const CarSelectionSection = () => {
           </p>
           
           <div className="mt-8">
-            <button className="group relative inline-flex items-center justify-center px-16 py-6 text-lg font-bold text-white transition-all duration-300 hover:duration-300">
+            <Link to="/vehicles" className="group relative inline-flex items-center justify-center px-16 py-6 text-lg font-bold text-white transition-all duration-300 hover:duration-300">
               <span className="relative flex items-center px-8 py-4 rounded-full bg-gray-900/80 backdrop-blur-sm">
                 <span>Explore All</span>
               </span>
-            </button>
+            </Link>
           </div>
         </div>
 

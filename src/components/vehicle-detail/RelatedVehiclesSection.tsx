@@ -53,7 +53,7 @@ const RelatedVehiclesSection = ({ vehicles }: RelatedVehiclesSectionProps) => {
     <section id="related-vehicles-section" className="relative py-16 sm:py-20 md:py-24 overflow-hidden">
       <div className="relative z-10 container">
         <div className={`text-center mb-8 sm:mb-12 transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`} style={{transitionDelay: '200ms'}}>
-          <div className="inline-flex items-center px-3 py-1.5 sm:px-4 py-2 bg-purple-600/20 backdrop-blur-sm border border-purple-500/30 rounded-full text-xs sm:text-sm font-medium text-purple-200 mb-4">
+          <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-purple-600/20 backdrop-blur-sm border border-purple-500/30 rounded-full text-xs sm:text-sm font-medium text-purple-200 mb-4">
             You might also like
           </div>
           
@@ -144,7 +144,6 @@ const RelatedVehiclesSection = ({ vehicles }: RelatedVehiclesSectionProps) => {
                   <button
                     onClick={() => {
                       navigate(`/vehicles/${vehicle.id}`);
-                      window.scrollTo(0, 0);
                     }}
                     className="group relative w-full inline-flex items-center justify-center py-2.5 sm:py-3 text-sm sm:text-base font-bold transition-all duration-300 text-white hover:duration-300"
                   >
@@ -165,7 +164,6 @@ const RelatedVehiclesSection = ({ vehicles }: RelatedVehiclesSectionProps) => {
           <button
             onClick={() => {
               navigate('/vehicles');
-              window.scrollTo(0, 0);
             }}
             className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 overflow-hidden rounded-full"
           >

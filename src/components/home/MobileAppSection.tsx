@@ -80,7 +80,7 @@ const MobileAppSection = () => {
               <a href="#" className="group inline-block transition-all duration-300 hover:opacity-80 hover:transform hover:scale-105">
                 <img
                   alt="Download on the App Store"
-                  className="h-10 block"
+                  className="h-10 w-35 block hover:opacity-80 transition-opacity cursor-pointer"
                   src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                 />
               </a>
@@ -88,7 +88,7 @@ const MobileAppSection = () => {
               <a href="#" className="group inline-block transition-all duration-300 hover:opacity-80 hover:transform hover:scale-105">
                 <img
                   alt="Get it on Google Play"
-                  className="h-10 block"
+                  className="h-10 w-35 block hover:opacity-80 transition-opacity cursor-pointer"
                   src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
                 />
               </a>

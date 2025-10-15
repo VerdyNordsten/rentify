@@ -146,7 +146,6 @@ const VehicleCard = ({
             <button
               onClick={() => {
                 navigate(`/vehicles/${carData.id}`);
-                window.scrollTo(0, 0);
               }}
               className={`group relative flex-1 inline-flex items-center justify-center py-3 text-base font-bold transition-all duration-300 ${
                 carData.available

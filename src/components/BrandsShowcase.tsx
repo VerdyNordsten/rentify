@@ -112,21 +112,6 @@ const BrandsShowcase = () => {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes infinite-scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        
-        .animate-infinite-scroll {
-          animation: infinite-scroll 30s linear infinite;
-        }
-      `}</style>
     </section>
   );
 };

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Settings, Fuel, DoorOpen, Snowflake, Users, Route, Check, Calendar } from 'lucide-react';
 
 interface VehicleSpecsProps {

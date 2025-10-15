@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import Header from '@/components/Header';
-import VehicleHeroSection from '@/components/VehicleHeroSection';
-import VehicleGridSection from '@/components/VehicleGridSection';
+import VehicleHeroSection from '@/components/vehicles/VehicleHeroSection';
+import VehicleGridSection from '@/components/vehicles/VehicleGridSection';
 import BrandsShowcase from '@/components/BrandsShowcase';
 import Footer from '@/components/Footer';
 import GradientLayout from '@/components/GradientLayout';
