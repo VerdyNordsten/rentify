@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import CarCard from '../CarCard';
-import { Car } from '@/types/vehicle';
+import VehicleCard from '../VehicleCard';
+import { Vehicle } from '@/types/vehicle';
 import { vehicleService } from '@/services/vehicleService';
 
 const CarSelectionSection = () => {
@@ -31,7 +31,7 @@ const CarSelectionSection = () => {
     };
   }, []);
 
-  const cars: Car[] = vehicleService.getCars();
+  const vehicles: Vehicle[] = vehicleService.getFeaturedVehicles(6);
 
   return (
     <section id="car-selection-section" className="relative py-32 overflow-hidden">
@@ -61,10 +61,10 @@ const CarSelectionSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cars.map((car, index) => (
-            <CarCard
-              key={car.id}
-              car={car}
+          {vehicles.map((vehicle, index) => (
+            <VehicleCard
+              key={vehicle.id}
+              vehicle={vehicle}
               animationDelay={index * 100}
               isAnimated={isAnimated}
             />

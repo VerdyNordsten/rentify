@@ -70,19 +70,14 @@ const CTASection = () => {
       <div className="relative z-10 container px-4 sm:px-6 lg:px-8">
         <div className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 text-white overflow-hidden shadow-2xl">
           
-          {/* Animated background elements */}
           <div className="absolute inset-0 bg-gradient-to-tr from-indigo-700/20 via-transparent to-pink-700/20"></div>
-          
           <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-white/10 rounded-full filter blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 left-0 w-48 h-48 md:w-80 md:h-80 bg-white/5 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          
-          {/* Decorative car icon */}
           <div className="absolute right-4 bottom-4 md:right-12 md:bottom-12 text-white/5 transform scale-75 md:scale-100">
             <Car className="w-32 h-32 md:w-48 md:h-48" />
           </div>
 
           <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left content */}
             <div className={`space-y-6 transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
               <div className="space-y-4">
                 <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-medium text-white">
@@ -104,7 +99,6 @@ const CTASection = () => {
                 </p>
               </div>
 
-              {/* Features grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {features.map((feature, index) => {
                   const IconComponent = feature.icon;
@@ -124,7 +118,6 @@ const CTASection = () => {
               </div>
             </div>
 
-            {/* Right content - Form */}
             <div className={`transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`} style={{transitionDelay: '300ms'}}>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 rounded-3xl blur-xl transition-opacity duration-300"></div>
@@ -135,7 +128,6 @@ const CTASection = () => {
                   </h3>
                   
                   <form onSubmit={handleSearch} className="space-y-6">
-                    {/* Location select */}
                     <div className={`space-y-2 transition-all duration-300 ${focusedField === 'city' ? 'transform scale-105' : ''}`}>
                       <label htmlFor="city" className="block text-sm font-medium text-gray-100">
                         Search Location
@@ -167,7 +159,6 @@ const CTASection = () => {
                       </div>
                     </div>
 
-                    {/* Date pickers - stacked on mobile, side by side on larger screens */}
                     <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 transition-all duration-300`}>
                       <div className="space-y-2">
                         <label htmlFor="pickup" className="block text-sm font-medium text-gray-100">
@@ -232,7 +223,6 @@ const CTASection = () => {
                       </div>
                     </div>
 
-                    {/* Submit button */}
                     <button
                       type="submit"
                       className="group relative w-full inline-flex items-center justify-center py-4 text-lg font-bold text-white transition-all duration-300 overflow-hidden rounded-xl"
@@ -245,7 +235,6 @@ const CTASection = () => {
                     </button>
                   </form>
 
-                  {/* Trust indicators */}
                   <div className="mt-6 flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-center">
                     <div className="flex items-center text-gray-200 text-sm">
                       <Lock className="w-4 h-4 mr-2" />

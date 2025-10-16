@@ -15,8 +15,7 @@ const StatsSection = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsAnimated(true);
-            // Start counting animation
-            const duration = 2000; // 2 seconds
+            const duration = 2000;
             const steps = 60;
             const customersIncrement = 20000 / steps;
             const carsIncrement = 540 / steps;

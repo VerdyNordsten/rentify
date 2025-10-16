@@ -2,14 +2,28 @@ export interface BaseVehicle {
   id: number;
   name: string;
   type: string;
+  category?: string;
   price: number;
   transmission: string;
   fuel: string;
   airConditioner: boolean;
+  year?: number;
+  brand?: string;
+  model?: string;
+  color?: string;
+  engine?: string;
+  horsepower?: number;
+  acceleration?: string;
+  topSpeed?: string;
+  fuelEfficiency?: string;
+  luggageCapacity?: string;
+  features?: string[];
+  description?: string;
 }
 
 export interface Vehicle extends BaseVehicle {
   image: string;
+  thumbnail?: string;
   seats?: number;
   rating?: number;
   reviews?: number;
@@ -22,6 +36,14 @@ export interface VehicleDetail extends BaseVehicle {
   seats: number;
   distance: number;
   equipment: string[];
+  rentalTerms?: {
+    minimumAge: number;
+    licenseRequired: boolean;
+    securityDeposit: number;
+    insuranceIncluded: boolean;
+    mileageLimit: number;
+    additionalDriverFee: number;
+  };
 }
 
 export interface Car {

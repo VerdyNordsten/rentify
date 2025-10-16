@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <style>::-webkit-scrollbar { display: none;}</style>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            'brand-purple': '#5F33E1',
+                            'brand-orange': '#F9A825',
+                            'brand-dark': '#1A1A1A',
+                            'brand-gray-light': '#F8F8FA',
+                            'brand-gray-medium': '#6B7280',
+                            'brand-gray-dark': '#374151',
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body class="bg-white text-brand-dark font-['Manrope',_sans-serif]">
+    
+    <div id="main-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header id="header" class="flex justify-between items-center py-6">
+            <div class="flex items-center space-x-3">
+                <div class="bg-brand-dark text-white p-3 rounded-md">
+                    <i class="fa-solid fa-car-side text-lg"></i>
+                </div>
+                <span class="font-bold text-xl">Car Rental</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-10">
+                <span class="text-brand-dark font-semibold hover:text-brand-purple transition-colors cursor-pointer">Home</span>
+                <span class="text-brand-dark font-semibold hover:text-brand-purple transition-colors cursor-pointer">Vehicles</span>
+                <span class="text-brand-dark font-semibold hover:text-brand-purple transition-colors cursor-pointer">Details</span>
+                <span class="text-brand-dark font-semibold hover:text-brand-purple transition-colors cursor-pointer">About Us</span>
+                <span class="text-brand-dark font-semibold hover:text-brand-purple transition-colors cursor-pointer">Contact Us</span>
+            </nav>
+            <div class="flex items-center space-x-3">
+                <div class="bg-brand-purple text-white w-10 h-10 flex items-center justify-center rounded-full">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-brand-gray-medium">Need help?</p>
+                    <p class="font-bold">+996 247-1680</p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="contact-hero" class="text-center py-16">
+                <h1 class="text-6xl font-extrabold text-brand-dark">Contact Us</h1>
+                <p class="text-brand-gray-medium mt-4">
+                    <span class="hover:text-brand-purple cursor-pointer">Home</span> / <span>Contact Us</span>
+                </p>
+            </section>
+
+            <section id="contact-form-section" class="py-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <div id="booking-form-card" class="lg:col-span-4 bg-brand-purple rounded-2xl shadow-lg p-8 text-white">
+                        <h3 class="text-3xl font-bold text-center mb-8">Book your car</h3>
+                        <form class="space-y-5">
+                            <div>
+                                <label for="car-type" class="sr-only">Car type</label>
+                                <div class="relative">
+                                    <select id="car-type" class="w-full bg-white/20 border-none rounded-lg p-3 appearance-none placeholder-white/70 text-white">
+                                        <option>Car type</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-white/70"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="rental-place" class="sr-only">Place of rental</label>
+                                <div class="relative">
+                                    <select id="rental-place" class="w-full bg-white/20 border-none rounded-lg p-3 appearance-none placeholder-white/70 text-white">
+                                        <option>Place of rental</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-white/70"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="return-place" class="sr-only">Place of return</label>
+                                <div class="relative">
+                                    <select id="return-place" class="w-full bg-white/20 border-none rounded-lg p-3 appearance-none placeholder-white/70 text-white">
+                                        <option>Place of return</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-white/70"></i>
+                                </div>
+                            </div>
+                             <div class="relative">
+                                <input type="text" placeholder="Rental date" class="w-full bg-white/20 border-none rounded-lg p-3 placeholder-white/70 text-white" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                <i class="fa-regular fa-calendar absolute right-4 top-1/2 -translate-y-1/2 text-white/70"></i>
+                            </div>
+                             <div class="relative">
+                                <input type="text" placeholder="Return date" class="w-full bg-white/20 border-none rounded-lg p-3 placeholder-white/70 text-white" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                <i class="fa-regular fa-calendar absolute right-4 top-1/2 -translate-y-1/2 text-white/70"></i>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-orange text-white font-bold py-3.5 rounded-lg hover:bg-opacity-90 transition-colors mt-2">Book now</button>
+                        </form>
+                    </div>
+                    <div id="contact-image-container" class="lg:col-span-8 h-[500px] rounded-2xl overflow-hidden">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5d4baaf0eb-c3a6b8cd3bd3fde28cdb.png" alt="a blurry, abstract photo of the interior of a luxury car, focusing on the dashboard lights and leather seats, with a cinematic, moody feel" />
+                    </div>
+                </div>
+            </section>
+            
+            <section id="contact-info-bar" class="py-16">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div id="contact-address" class="flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-brand-orange rounded-full flex items-center justify-center text-white">
+                            <i class="fa-solid fa-location-dot text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-brand-gray-medium">Address</p>
+                            <p class="font-bold text-brand-dark">Oxford Ave, Cary, NC 27511</p>
+                        </div>
+                    </div>
+                    <div id="contact-email" class="flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-brand-orange rounded-full flex items-center justify-center text-white">
+                            <i class="fa-solid fa-envelope text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-brand-gray-medium">Email</p>
+                            <p class="font-bold text-brand-dark">nwiger@yahoo.com</p>
+                        </div>
+                    </div>
+                    <div id="contact-phone" class="flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-brand-orange rounded-full flex items-center justify-center text-white">
+                            <i class="fa-solid fa-phone-volume text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-brand-gray-medium">Phone</p>
+                            <p class="font-bold text-brand-dark">+537 547-6401</p>
+                        </div>
+                    </div>
+                    <div id="contact-hours" class="flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-brand-orange rounded-full flex items-center justify-center text-white">
+                            <i class="fa-regular fa-clock text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-brand-gray-medium">Opening hours</p>
+                            <p class="font-bold text-brand-dark">Sun-Mon: 10am - 10pm</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="blog-section" class="py-20">
+                <h2 class="text-5xl font-extrabold text-center text-brand-dark mb-12">Latest blog posts & news</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div id="blog-card-1" class="group">
+                        <div class="h-64 rounded-2xl overflow-hidden mb-5">
+                             <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ba9d0c3758-c38425e0a650742ba7f7.png" alt="blurry abstract image of a car dashboard at night, with glowing dials and a soft focus, cinematic style" />
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-dark mb-2">How To Choose The Right Car</h3>
+                        <p class="text-sm text-brand-gray-medium">News / 12April 2024</p>
+                    </div>
+                    <div id="blog-card-2" class="group">
+                        <div class="h-64 rounded-2xl overflow-hidden mb-5">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/489c30bca8-9304cc94928a401abe7e.png" alt="blurry abstract photo of a car" />
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-dark mb-2">Which plan is right for me?</h3>
+                        <p class="text-sm text-brand-gray-medium">News / 12April 2024</p>
+                    </div>
+                    <div id="blog-card-3" class="group">
+                        <div class="h-64 rounded-2xl overflow-hidden mb-5">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a329603cd1-8c2903a678aa6fa6ac87.png" alt="blurry abstract close-up of a luxury car" />
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-dark mb-2">Enjoy Speed, Choice & Total Control</h3>
+                        <p class="text-sm text-brand-gray-medium">News / 12April 2024</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="brands-section" class="py-16">
+                <div class="bg-brand-gray-light rounded-2xl p-10">
+                    <div class="flex justify-around items-center flex-wrap gap-8">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b950346069-b5f7e7f620f4bb43a29b.png" alt="Toyota logo" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b950346069-70a9b2b0a1d53dc8327d.png" alt="Ford logo" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b950346069-1f0e49f69769ed275296.png" alt="Mercedes-Benz logo" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b950346069-f1661d9a272eb995574a.png" alt="Jeep logo" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b950346069-2a90099684157d6928e4.png" alt="BMW logo" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b950346069-ecb6038479e0a811d511.png" alt="Audi logo" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer id="footer" class="bg-white pt-20 pb-8 mt-16 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <div class="md:col-span-3">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="bg-brand-dark text-white p-3 rounded-md">
+                            <i class="fa-solid fa-car-side text-lg"></i>
+                        </div>
+                        <span class="font-bold text-xl">Car Rental</span>
+                    </div>
+                    <p class="text-brand-gray-medium max-w-xs mb-6 text-sm leading-relaxed">Faucibus faucibus pellentesque dictum turpis. Id pellentesque turpis massa a id iaculis lorem t...</p>
+                    <div class="flex space-x-3">
+                        <span class="w-9 h-9 flex items-center justify-center bg-brand-dark text-white rounded-md hover:bg-brand-purple transition-colors cursor-pointer"><i class="fa-brands fa-facebook-f"></i></span>
+                        <span class="w-9 h-9 flex items-center justify-center bg-brand-dark text-white rounded-md hover:bg-brand-purple transition-colors cursor-pointer"><i class="fa-brands fa-instagram"></i></span>
+                        <span class="w-9 h-9 flex items-center justify-center bg-brand-dark text-white rounded-md hover:bg-brand-purple transition-colors cursor-pointer"><i class="fa-brands fa-twitter"></i></span>
+                        <span class="w-9 h-9 flex items-center justify-center bg-brand-dark text-white rounded-md hover:bg-brand-purple transition-colors cursor-pointer"><i class="fa-brands fa-youtube"></i></span>
+                    </div>
+                </div>
+                <div class="md:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                     <div>
+                        <ul class="space-y-4 text-brand-gray-medium">
+                            <li class="flex items-start space-x-3">
+                                <div class="w-8 h-8 flex-shrink-0 bg-brand-orange rounded-full flex items-center justify-center text-white mt-1"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-brand-dark">Address</h5>
+                                    <span>Oxford Ave, Cary, NC 27511</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <div class="w-8 h-8 flex-shrink-0 bg-brand-orange rounded-full flex items-center justify-center text-white mt-1"><i class="fa-solid fa-envelope"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-brand-dark">Email</h5>
+                                    <span>nwiger@yahoo.com</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <div class="w-8 h-8 flex-shrink-0 bg-brand-orange rounded-full flex items-center justify-center text-white mt-1"><i class="fa-solid fa-phone"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-brand-dark">Phone</h5>
+                                    <span>+537 547-6401</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 text-lg">Useful links</h4>
+                        <ul class="space-y-2 text-brand-gray-medium">
+                            <li><span class="hover:text-brand-purple cursor-pointer">About us</span></li>
+                            <li><span class="hover:text-brand-purple cursor-pointer">Contact us</span></li>
+                            <li><span class="hover:text-brand-purple cursor-pointer">Gallery</span></li>
+                            <li><span class="hover:text-brand-purple cursor-pointer">Blog</span></li>
+                            <li><span class="hover:text-brand-purple cursor-pointer">F.A.Q</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 text-lg">Vehicles</h4>
+                        <ul class="space-y-2 text-brand-gray-medium">
+                            <li><span class="hover:text-brand-purple cursor-pointer">Sedan</span></li>
+                            <li><span class="hover:text-brand-purple cursor-pointer">Cabriolet</span></li>
+                            <li><span class="hover:text-brand-purple cursor-pointer">Pickup</span></li>
+                            <li><span class="hover:text-brand-purple cursor-pointer">Minivan</span></li>
+                            <li><span class="hover:text-brand-purple cursor-pointer">SUV</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:col-span-3">
+                    <h4 class="font-bold mb-4 text-lg">Download App</h4>
+                    <div class="space-y-3">
+                        <span class="block cursor-pointer"><img class="h-14 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d04841cacd-8ae2b8cde29e778c9bb8.png" alt="Apple App Store download button, black color" /></span>
+                        <span class="block cursor-pointer"><img class="h-14 w-auto" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/cb8db485cf-209a9afa9740e1c210c2.png" alt="Google Play Store download button, black color" /></span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-16 pt-8 text-sm text-brand-gray-medium">
+                <p>&copy; Copyright Car Rental 2024. Design by Figma. guru</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Vehicles from "./pages/Vehicles";
 import VehicleDetail from "./pages/VehicleDetail";
 import AboutUs from "./pages/AboutUs";
+import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import BackToTopButton from "./components/BackToTopButton";
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/vehicles" element={<Vehicles />} />
         <Route path="/vehicles/:id" element={<VehicleDetail />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <BackToTopButton />
     </Router>

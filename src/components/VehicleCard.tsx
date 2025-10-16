@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Star, X, Heart, Settings, Fuel, Users, Wind } from 'lucide-react';
+import { Star, Heart, Settings, Fuel, Users, Wind } from 'lucide-react';
 import { Vehicle } from '@/types/vehicle';
 
 interface VehicleCardProps {
@@ -39,7 +39,10 @@ const VehicleCard = ({
     seats: vehicle.seats || 4,
     rating: vehicle.rating || 4.5,
     reviews: vehicle.reviews || 12,
-    available: vehicle.available !== undefined ? vehicle.available : true
+    available: vehicle.available !== undefined ? vehicle.available : true,
+    brand: vehicle.brand || '',
+    year: vehicle.year || new Date().getFullYear(),
+    category: vehicle.category || 'standard'
   };
 
   const handleSelect = () => {
@@ -48,7 +51,7 @@ const VehicleCard = ({
 
   return (
     <div
-      className={`group relative transition-all duration-500 ${
+      className={`group relative transition-all duration-500 vehicle-card ${
         isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
       } ${isHovered ? 'transform scale-105' : ''} ${className}`}
       style={{transitionDelay: `${animationDelay}ms`}}
@@ -64,25 +67,22 @@ const VehicleCard = ({
       } ${isSelected ? 'ring-2 ring-purple-400' : ''}`}>
         <div className="relative h-56 bg-gray-900/30 overflow-hidden">
           <img
-            className={`h-full w-full object-contain transition-all duration-700 ${
-              isHovered ? 'scale-110 rotate-3' : 'scale-100 rotate-0'
-            }`}
-            src={carData.image}
+            className="h-full w-full object-cover"
+            src={carData.thumbnail || carData.image}
             alt={`${carData.name} ${carData.type}`}
           />
           
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
           
-          <div className="absolute top-4 left-4 flex gap-2">
-            {!carData.available && (
-              <div className="bg-red-500/80 backdrop-blur-sm text-white rounded-lg px-3 py-1 text-sm font-bold">
-                <X className="w-4 h-4 mr-1" />
-                Unavailable
-              </div>
-            )}
-            <div className="bg-purple-600/80 text-white rounded-lg px-3 py-1 text-sm font-bold">
-              <Star className="w-4 h-4 text-yellow-300 fill-yellow-300 mr-1" />
-              Premium
+          <div className="absolute top-4 left-4">
+            <div className={`${
+              carData.category === 'luxury'
+                ? 'bg-purple-600/80'
+                : carData.category === 'sports'
+                  ? 'bg-red-600/80'
+                  : 'bg-blue-600/80'
+            } text-white rounded-lg px-3 py-1 text-sm font-bold capitalize`}>
+              {carData.category}
             </div>
           </div>
 
@@ -108,7 +108,10 @@ const VehicleCard = ({
               <h3 className="text-xl font-bold text-white mb-1 group-hover:text-purple-200 transition-colors">
                 {carData.name}
               </h3>
-              <p className="text-gray-300 text-sm">{carData.type}</p>
+              <p className="text-gray-300 text-sm">
+                {carData.type} {carData.year && `• ${carData.year}`}
+                {carData.brand && ` • ${carData.brand}`}
+              </p>
             </div>
             <div className="text-right">
               <span className="text-2xl font-bold text-white">

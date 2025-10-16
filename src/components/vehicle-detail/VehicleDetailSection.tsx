@@ -92,9 +92,15 @@ const VehicleDetailSection = ({ vehicle, onRent }: VehicleDetailSectionProps) =>
         </div>
 
         <div className={`text-center mb-12 transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`} style={{transitionDelay: '200ms'}}>
-          <div className="inline-flex items-center px-4 py-2 bg-purple-600/20 backdrop-blur-sm border border-purple-500/30 rounded-full text-sm font-medium text-purple-200 mb-4">
+          <div className={`inline-flex items-center px-4 py-2 ${
+            vehicle.category === 'luxury'
+              ? 'bg-purple-600/20 border-purple-500/30 text-purple-200'
+              : vehicle.category === 'sports'
+                ? 'bg-red-600/20 border-red-500/30 text-red-200'
+                : 'bg-blue-600/20 border-blue-500/30 text-blue-200'
+          } backdrop-blur-sm border rounded-full text-sm font-medium mb-4 capitalize`}>
             <Star className="w-4 h-4 text-yellow-400 fill-yellow-400 mr-2" />
-            Premium Vehicle
+            {vehicle.category || 'Standard'} Vehicle
           </div>
           
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
@@ -105,14 +111,25 @@ const VehicleDetailSection = ({ vehicle, onRent }: VehicleDetailSectionProps) =>
           
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {vehicle.type} • {vehicle.transmission} • {vehicle.fuel}
+            {vehicle.year && ` • ${vehicle.year}`}
+            {vehicle.brand && ` • ${vehicle.brand}`}
           </p>
+          
+          {vehicle.description && (
+            <p className="text-gray-400 max-w-2xl mx-auto mt-4 leading-relaxed">
+              {vehicle.description}
+            </p>
+          )}
         </div>
 
-        <div className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-start transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: '300ms'}}>
+        <div className={`transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} -mx-4 sm:-mx-6 lg:-mx-8`} style={{transitionDelay: '300ms'}}>
           <VehicleGallery
             images={vehicle.images}
             name={vehicle.name}
           />
+        </div>
+        
+        <div className={`transition-all duration-1000 ${isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: '400ms'}}>
           <VehicleSpecs
             price={vehicle.price}
             transmission={vehicle.transmission}
@@ -123,6 +140,7 @@ const VehicleDetailSection = ({ vehicle, onRent }: VehicleDetailSectionProps) =>
             distance={vehicle.distance}
             equipment={vehicle.equipment}
             onRent={onRent}
+            vehicle={vehicle}
           />
         </div>
       </div>
